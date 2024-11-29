@@ -23,6 +23,15 @@ project(main LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if(DEFINED DATA_DIR)
+  message(STATUS "Using user-specified data directory: ${DATA_DIR}")
+else()
+  set(DATA_DIR ${CMAKE_CURRENT_SOURCE_DIR}/data)
+  message(STATUS "Using default data directory: ${DATA_DIR}")
+endif()
+
+add_definitions(-DDATA_DIR=\"${DATA_DIR}\")
+
 include(FetchContent)
 
 # Fetch the DataFrame library
