@@ -9,36 +9,6 @@
 
 #include "Wrapper.hpp"
 
-// -----------------------------------------------------------------------------
-
-/* // DataFrame library is entirely under hmdf name-space */
-
-/* using namespace hmdf; */
-
-/* // A DataFrame with ulong index type */
-/* // */
-/* using ULDataFrame = StdDataFrame<unsigned long>; */
-
-/* // A DataFrame with string index type */
-/* // */
-/* using StrDataFrame = StdDataFrame<std::string>; */
-
-/* // A DataFrame with DateTime index type */
-/* // */
-/* using DTDataFrame = StdDataFrame<DateTime>; */
-
-/* // This is just some arbitrary type to show how any type, including the DataFrame itself, could be in DataFrame */
-/* // */
-/* struct  MyData  { */
-/*     int         i { 10 }; */
-/*     double      d { 5.5 }; */
-/*     std::string s { "Some Arbitrary String" }; */
-
-/*     MyData() = default; */
-/* }; */
-
-// -----------------------------------------------------------------------------
-
 
 int main(int, char *[])  {
 

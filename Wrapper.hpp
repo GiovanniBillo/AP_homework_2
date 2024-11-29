@@ -29,30 +29,52 @@ using StrDataFrame = StdDataFrame<std::string>;
 using DTDataFrame = StdDataFrame<DateTime>;
 
 
+template <typename T>
 class DataFrameWrapper {
 private:
     std::filesystem::path data_directory;
-    std::string filename;
+    std::string inputFilename;
 
-    // Add the DataFrame as a member variable
-    hmdf::StdDataFrame<int> df;
+    // Generalized DataFrame using template
+    // TODO: solve this issue to make template adapt to any index type
+    hmdf::StdDataFrame<T> df;
 
+    // Dictionary to store column names and their types
+    std::unordered_map<std::string, std::string>* columnInfo = nullptr; // Pointer to columnTypes
+ 
 public:
     explicit DataFrameWrapper() 
         : data_directory(DATA_DIR) {  // Initialize data_directory with DATA_DIR macro
         std::cout << "Wrapper initialized!" << std::endl;
         std::cout << "Please provide the name of the input file in the chosen data directory: ";
-        std::cin >> filename;
-        this->loadAndReadFile();
+        std::cin >> inputFilename;
     }
 
     void loadAndReadFile() {
-        std::filesystem::path file_path = data_directory / filename;
 
         /* // Create an instance of StrDataFrame */
         /* hmdf::StdDataFrame<std::string> df; */
+        
+        // Process the data to put it in the right format for DataFrame
+        CSVParser parser;
+        std::string outputFilename = inputFilename + "_out";
 
-        const char* c_path = file_path.c_str();  // Convert to C-style string
+        std::filesystem::path if_path = data_directory / inputFilename;
+        parser.parse(if_path.string(), outputFilename); 
+        
+        columnInfo = parser.getColumnTypes();
+        if (!columnInfo) {
+            throw std::runtime_error("Column types not set. Please initialize columnInfo.");
+        }
+
+        // get the file path 
+        /* std::filesystem::path of_path = outputFilename; */
+
+        // DataFrame requires file input for read to be in C-style string
+        const char* c_path = outputFilename.c_str();
+        std::string indexType = columnInfo->at("INDEX");
+
+                                                 
         try {
             df.read(c_path, hmdf::io_format::csv2);  // Adjust to your DataFrame library's API
             std::cout << "File read successfully!" << std::endl;
@@ -62,10 +84,18 @@ public:
         } catch (const std::exception& e) {
             std::cerr << "Error: Could not read the file. " << e.what() << std::endl;
         }
+    
+        std::cout << "Column types:\n";
+        for (const auto& t: *columnInfo) {
+            std::cout << t << "\n";
+        }
+        std::cout << indexType << std::endl;
+
     }
 
-    void getInfo(){
-        
+/* void instantiateDataFrame(std::unique_ptr<hmdf::StdDataFrameBase> df, std::string indexType){ */
+/*     df = std::make_unique<hmdf::StdDataFrame<indexType>>() */
+/*     } */
 
-    }
+    void getInfo(){}
 };
