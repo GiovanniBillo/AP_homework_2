@@ -53,9 +53,10 @@ public:
             outputFile << rowLine << "\n";
         }
 
-        // Write formatted header to retrieve infos later
+        /* // Write formatted header to retrieve infos later */
         std::string newHeader = formatHeader(columnNames, rowCount, columnTypes);
         std::ofstream headerFile("header_info.txt");
+        std::cout << "HEADER FILE PRINTED" << std::endl;
 
         if (!headerFile.is_open()) {
             throw std::runtime_error("Unable to create header_info.txt file");
@@ -84,7 +85,6 @@ public:
         std::remove(outputFilename.c_str());
         std::rename("merged.csv", outputFilename.c_str());
 
-       
     }
 
     std::unordered_map<std::string, std::string>* getColumnTypes() {

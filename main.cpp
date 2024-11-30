@@ -12,8 +12,17 @@
 
 int main(int, char *[])  {
 
-    DataFrameWrapper dfw;
+    DataFrameWrapper<int> dfw;
     dfw.loadAndReadFile();
+
+    const auto &discountColumn = dfw.operator$<double>("Discount"); 
+    std::cout << discountColumn[1] << discountColumn[2] << discountColumn[3] << std::endl;
+    auto sd = dfw.StandardDeviation<double>("Discount");
+    auto mean = dfw.Mean<double>("Discount");
+    std::cout << sd<< std::endl;
+    std::cout << mean << std::endl;
+
+
     /* StrDataFrame    ibm_df; */
 
     /* // Also, you can load data into a DataFrame from a file, supporting a few different formats. If the file cannot be found, */

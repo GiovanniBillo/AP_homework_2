@@ -9,6 +9,7 @@
 #include <filesystem>
 
 #include "parser.hpp"
+/* #include "initializer.hpp" */
 
 // -----------------------------------------------------------------------------
 
@@ -28,15 +29,19 @@ using StrDataFrame = StdDataFrame<std::string>;
 //
 using DTDataFrame = StdDataFrame<DateTime>;
 
+// Alias for a type-erased DataFrame
+using DataFrameVariant = std::variant<
+    hmdf::StdDataFrame<int>,
+    hmdf::StdDataFrame<double>,
+    hmdf::StdDataFrame<std::string>>;
 
 template <typename T>
 class DataFrameWrapper {
 private:
     std::filesystem::path data_directory;
     std::string inputFilename;
+    std::string outputFilename;
 
-    // Generalized DataFrame using template
-    // TODO: solve this issue to make template adapt to any index type
     hmdf::StdDataFrame<T> df;
 
     // Dictionary to store column names and their types
@@ -48,6 +53,8 @@ public:
         std::cout << "Wrapper initialized!" << std::endl;
         std::cout << "Please provide the name of the input file in the chosen data directory: ";
         std::cin >> inputFilename;
+        std::cout << "Please provide the name of the desired output filename: ";
+        std::cin >> outputFilename;
     }
 
     void loadAndReadFile() {
@@ -57,45 +64,67 @@ public:
         
         // Process the data to put it in the right format for DataFrame
         CSVParser parser;
-        std::string outputFilename = inputFilename + "_out";
+        /* std::string outputFilename = inputFilename + "_out"; */
 
         std::filesystem::path if_path = data_directory / inputFilename;
-        parser.parse(if_path.string(), outputFilename); 
+        std::filesystem::path of_path = data_directory / outputFilename;
+        parser.parse(if_path.string(), of_path.string()); 
         
         columnInfo = parser.getColumnTypes();
         if (!columnInfo) {
             throw std::runtime_error("Column types not set. Please initialize columnInfo.");
         }
 
-        // get the file path 
-        /* std::filesystem::path of_path = outputFilename; */
-
-        // DataFrame requires file input for read to be in C-style string
-        const char* c_path = outputFilename.c_str();
-        std::string indexType = columnInfo->at("INDEX");
-
-                                                 
-        try {
-            df.read(c_path, hmdf::io_format::csv2);  // Adjust to your DataFrame library's API
-            std::cout << "File read successfully!" << std::endl;
-            std::cout << "Loaded DataFrame has " 
-                      << df.get_index().size() 
-                      << " rows." << std::endl;
-        } catch (const std::exception& e) {
-            std::cerr << "Error: Could not read the file. " << e.what() << std::endl;
-        }
-    
         std::cout << "Column types:\n";
         for (const auto& t: *columnInfo) {
             std::cout << t << "\n";
         }
-        std::cout << indexType << std::endl;
 
+        // DataFrame requires file input for read to be in C-style string
+        const char* c_path = of_path.c_str();
+         
+
+        df.read(c_path, io_format::csv2);
+        
+    }
+    
+    template <typename CT>
+    const auto operator$(const char * columnName) const {
+        return df.template get_column<CT>(columnName);
+    }
+    
+    /* template <typename CT> */
+    /* const auto mean(const char * columnName, visitor = MeanVisitor<double, std::string>){ */
+    /*    df.visit<CT>(columnName, visitor); */
+    /*    visitor.get_result(); */
+
+    /* } */
+    template <typename CT>
+    auto StandardDeviation(const char* columnName) {
+        // Create the visitor inline
+        StdVisitor<CT, T> visitor;
+
+        // Perform operations
+        df.template visit<CT>(columnName, visitor);
+        return visitor.get_result();  // Return the result of the visitor
     }
 
-/* void instantiateDataFrame(std::unique_ptr<hmdf::StdDataFrameBase> df, std::string indexType){ */
-/*     df = std::make_unique<hmdf::StdDataFrame<indexType>>() */
-/*     } */
+    template <typename CT>
+    auto Mean(const char* columnName) {
+        // Create the visitor inline
+        MeanVisitor<CT, T> visitor;
+
+        // Perform operations
+        df.template visit<CT>(columnName, visitor);
+        return visitor.get_result();  // Return the result of the visitor
+    }
+
+
+    
+
 
     void getInfo(){}
 };
+
+
+
