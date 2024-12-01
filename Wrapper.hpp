@@ -78,10 +78,10 @@ public:
             throw std::runtime_error("Column types not set. Please initialize columnInfo.");
         }
 
-        std::cout << "Column types:\n";
-        for (const auto& t: *columnInfo) {
-            std::cout << t << "\n";
-        }
+        /* std::cout << "Column types:\n"; */
+        /* for (const auto& t: *columnInfo) { */
+        /*     std::cout << t << "\n"; */
+        /* } */
 
         // DataFrame requires file input for read to be in C-style string
         const char* c_path = of_path.c_str();
@@ -225,7 +225,31 @@ public:
         return classifications;
     }
 
-    void getInfo(){}
+    /* template<typename ... Ts>-> is adding the complexity worth it? */ 
+    void getInfo(){
+            try {
+        auto desc = df.template describe<double, int>(); // Filter for numerical types
+
+        // Write to console
+        desc.template write<std::ostream, double>(std::cout, io_format::csv2);
+
+        // Write to a text file
+        std::ofstream outFile("dataset_info.txt");
+        if (outFile.is_open()) {
+            std::ostream& outStream = outFile; // Bind to std::ostream
+            desc.template write<std::ostream, double>(outStream, io_format::csv2);
+            outFile.close();
+        } else {
+            std::cerr << "Error: Could not open the file for writing." << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    }
+
+    
+    /* TODO: sort out operator overloading for [] & co. */
+
 };
 
 // Overload operator<< for std::unordered_map
