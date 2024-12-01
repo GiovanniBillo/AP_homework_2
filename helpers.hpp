@@ -164,6 +164,23 @@ std::ostream& operator<<(std::ostream& os, const std::pair<T1, T2>& pair) {
     return os;
 }
 
+// Function to check if the header is correctly formatted
+bool isFormattedHeader(const std::string& header) {
+    // Define the regular expression for a correctly formatted column
+    const std::regex column_format(R"((\w+):(\d+):<(\w+)>)");
+
+    // Split the header into individual columns using ',' as a delimiter
+    std::istringstream header_stream(header);
+    std::string column;
+    while (std::getline(header_stream, column, ',')) {
+        // Check if the column matches the format
+        if (!std::regex_match(column, column_format)) {
+            return false; // If any column doesn't match, the header is invalid
+        }
+    }
+
+    return true; // All columns are valid
+}
 
 
 #endif // HELPERS_HPP

@@ -7,6 +7,9 @@
 /* #include <ifstream> */
 #include <string>
 #include <filesystem>
+#include <cmath>
+#include <vector>
+#include <functional>
 
 #include "parser.hpp"
 /* #include "initializer.hpp" */
@@ -119,12 +122,135 @@ public:
         return visitor.get_result();  // Return the result of the visitor
     }
 
+    template <typename CT>
+    auto Variance(const char* columnName) {
+        // Create the visitor inline
+        StdVisitor<CT, T> visitor;
 
-    
+        // Perform operations
+        df.template visit<CT>(columnName, visitor);
+        return pow(visitor.get_result(), 2);  // Return the result of the visitor
+    }
 
+    template <typename CT>
+    auto Median(const char* columnName) {
+        // Create the visitor inline
+        MedianVisitor<CT, T> visitor;
+
+        // Perform operations
+        df.template visit<CT>(columnName, visitor);
+        return visitor.get_result();  // Return the result of the visitor
+    }
+
+    template <typename CT>
+    auto Correlation(const char* columnName1, const char * columnName2) {
+        // Create the visitor inline
+        CorrVisitor<CT, T> visitor;
+
+        // Perform operations
+        df.template single_act_visit<CT, CT>(columnName1, columnName2, visitor);
+        return visitor.get_result();  // Return the result of the visitor
+    }
+
+    template <typename CT>
+    auto frequencyCount(const char * columnName) {
+        // Create the visitor inline
+        auto result =  df. template value_counts<CT>(columnName);
+        /* auto name_index = df.indices_; */ 
+        auto name_index = result.get_index();
+        const std::vector<unsigned long> & counts = result. template get_column<size_t>("counts"); 
+        // Create a dictionary (unordered_map) to map name_index to counts
+        std::unordered_map<CT, unsigned long> index_to_count;
+
+        // Populate the dictionary
+        for (unsigned int i = 0; i < name_index.size(); ++i) {
+            index_to_count[name_index[i]] = counts[i];
+        }
+            return index_to_count;  // Return the result of the visitor
+        }
+
+    // Friend function to overload <<
+    friend std::ostream& operator<<(std::ostream& os, const StdDataFrame<T>& df) {
+            /* // Print column headers */
+            /* for (const auto& col : df.columns) { */
+            /*     os << std::setw(15) << col; // Adjust column width */
+            /* } */
+            /* os << std::endl; */
+
+            /* // Print rows */
+            /* for (const auto& row : df.data) { */
+            /*     for (const auto& value : row) { */
+            /*         os << std::setw(15) << value; // Align values */
+            /*     } */
+            /*     os << std::endl; */
+            /* } */
+            /* auto result = df.value_counts<double>("col_3"); */
+            df.template write<std::ostream, double, T>(std::cout);
+
+            return os;
+        }
+
+    // Generalized classify function
+
+    template <typename CT>
+    std::vector<std::string> classify(
+        const char * columnName,
+        const std::vector<std::string>& categories,
+        const std::vector<std::function<bool(CT)>>& conditions) {
+        
+        // Ensure the number of categories matches the number of conditions
+        if (categories.size() != conditions.size()) {
+            throw std::invalid_argument("Categories and conditions sizes must match.");
+        }
+
+        std::vector<std::string> classifications;
+        const std::vector<CT>& data = df. template get_column<CT>(columnName);
+
+        // Classify each data point
+        for (const auto& value : data) {
+            bool matched = false;
+            for (size_t i = 0; i < categories.size(); ++i) {
+                if (conditions[i](value)) {
+                    classifications.push_back(categories[i]);
+                    matched = true;
+                    break;
+                }
+            }
+            // Default classification if no condition matches
+            if (!matched) {
+                classifications.push_back("Uncategorized");
+            }
+        }
+
+        return classifications;
+    }
 
     void getInfo(){}
 };
 
+// Overload operator<< for std::unordered_map
+template <typename Key, typename Value>
+std::ostream& operator<<(std::ostream& os, const std::unordered_map<Key, Value>& map) {
+    os << "{ ";
+    for (const auto& [key, value] : map) {
+        os << key << ": " << value << ", ";
+    }
+    if (!map.empty()) {
+        os.seekp(-2, std::ios_base::end); // Remove the last ", "
+    }
+    os << " }";
+    return os;
+}
 
-
+// Overload operator<< for std::vector<std::string>
+std::ostream& operator<<(std::ostream& os, const std::vector<std::string>& vec) {
+    os << "[ ";
+    for (const auto& item : vec) {
+        os << "\"" << item << "\", ";
+    }
+    if (!vec.empty()) {
+        os.seekp(-2, std::ios_base::end);  // Remove the trailing ", "
+    }
+    os << " ]";
+    return os;
+}
