@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/CMakeFiles/dataframe-populate"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/CMakeFiles/dataframe-populate.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/CMakeFiles/dataframe-populate-complete.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-build.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-configure.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-download.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-install.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-patch.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-test.rule"
+		},
+		{
+			"file" : "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-subbuild/dataframe-populate-prefix/src/dataframe-populate-stamp/dataframe-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"dataframe-populate"
+		],
+		"name" : "dataframe-populate"
+	}
+}
