@@ -115,45 +115,123 @@ bool isDateTimeAME(const std::string& str) {
 }
 
 
+/* void updateColumnType(const std::string& currentColumn, const std::string& cell, */
+/*                       std::vector<std::pair<std::string, std::string>>& columnTypes) { */
+/*     if (columnTypes[currentColumn] == "Unknown") { */
+/*         if (isInteger(cell)) { */
+/*             columnTypes[currentColumn] = "int"; */
+/*         } else if (isDouble(cell)) { */
+/*             columnTypes[currentColumn] = "double"; */
+/*         } else if (isDate(cell)) { */
+/*             if (isDateTimeISO(cell)) { */
+/*                 columnTypes[currentColumn] = "DateTimeISO"; */
+/*             } else if (isDateTimeAME(cell)) { */
+/*                 columnTypes[currentColumn] = "DateTimeAME"; */
+/*             } else { */
+/*                 columnTypes[currentColumn] = "DateTimeISO"; */
+/*             } */
+/*         } else { */
+/*             columnTypes[currentColumn] = "string"; */
+/*         } */
+/*     } else if (columnTypes[currentColumn] == "integer" && !isInteger(cell)) { */
+/*         columnTypes[currentColumn] = isDouble(cell) ? "double" : "string"; */
+/*     } else if (columnTypes[currentColumn] == "double" && !isDouble(cell)) { */
+/*         columnTypes[currentColumn] = "string"; */
+/*     } else if (columnTypes[currentColumn] == "date" && !isDate(cell)) { */
+/*         columnTypes[currentColumn] = "string"; */
+/*     } else if (columnTypes[currentColumn] == "DateTimeISO" && !isDateTimeISO(cell)) { */
+/*         columnTypes[currentColumn] = "string"; */
+/*     } else if (columnTypes[currentColumn] == "DateTimeAME" && !isDateTimeAME(cell)) { */
+/*         columnTypes[currentColumn] = "string"; */
+/*     } */
+/* } */
 void updateColumnType(const std::string& currentColumn, const std::string& cell,
-                      std::unordered_map<std::string, std::string>& columnTypes) {
-    if (columnTypes[currentColumn] == "Unknown") {
+                      std::vector<std::pair<std::string, std::string>>& columnTypes) {
+    // Find the column entry by iterating through the vector
+    auto it = std::find_if(columnTypes.begin(), columnTypes.end(),
+                           [&currentColumn](const std::pair<std::string, std::string>& p) {
+                               return p.first == currentColumn;
+                           });
+
+    // If the column type is not found, add a new entry with "Unknown" type
+    if (it == columnTypes.end()) {
+        columnTypes.push_back({currentColumn, "Unknown"});
+        it = std::prev(columnTypes.end());
+    }
+
+    // Now, `it` points to the correct column pair
+    if (it->second == "Unknown") {
         if (isInteger(cell)) {
-            columnTypes[currentColumn] = "int";
+            it->second = "int";
         } else if (isDouble(cell)) {
-            columnTypes[currentColumn] = "double";
+            it->second = "double";
         } else if (isDate(cell)) {
             if (isDateTimeISO(cell)) {
-                columnTypes[currentColumn] = "DateTimeISO";
+                it->second = "DateTimeISO";
             } else if (isDateTimeAME(cell)) {
-                columnTypes[currentColumn] = "DateTimeAME";
+                it->second = "DateTimeAME";
             } else {
-                columnTypes[currentColumn] = "DateTimeISO";
+                it->second = "DateTimeISO";
             }
         } else {
-            columnTypes[currentColumn] = "string";
+            it->second = "string";
         }
-    } else if (columnTypes[currentColumn] == "integer" && !isInteger(cell)) {
-        columnTypes[currentColumn] = isDouble(cell) ? "double" : "string";
-    } else if (columnTypes[currentColumn] == "double" && !isDouble(cell)) {
-        columnTypes[currentColumn] = "string";
-    } else if (columnTypes[currentColumn] == "date" && !isDate(cell)) {
-        columnTypes[currentColumn] = "string";
-    } else if (columnTypes[currentColumn] == "DateTimeISO" && !isDateTimeISO(cell)) {
-        columnTypes[currentColumn] = "string";
-    } else if (columnTypes[currentColumn] == "DateTimeAME" && !isDateTimeAME(cell)) {
-        columnTypes[currentColumn] = "string";
+    } else if (it->second == "integer" && !isInteger(cell)) {
+        it->second = isDouble(cell) ? "double" : "string";
+    } else if (it->second == "double" && !isDouble(cell)) {
+        it->second = "string";
+    } else if (it->second == "date" && !isDate(cell)) {
+        it->second = "string";
+    } else if (it->second == "DateTimeISO" && !isDateTimeISO(cell)) {
+        it->second = "string";
+    } else if (it->second == "DateTimeAME" && !isDateTimeAME(cell)) {
+        it->second = "string";
     }
 }
 
-std::string formatHeader(const std::vector<std::string>& columnNames, size_t rowCount,
-                         const std::unordered_map<std::string, std::string>& columnTypes) {
+/* std::string formatHeader(const std::vector<std::string>& columnNames, size_t rowCount, */
+/*                          const std::unordered_map<std::string, std::string>& columnTypes) { */
+/*     std::ostringstream formattedHeader; */
+/*     for (size_t i = 0; i < columnNames.size(); ++i) { */
+/*         if (i > 0) { */
+/*             formattedHeader << ","; */
+/*         } */
+/*         formattedHeader << columnNames[i] << ":" << rowCount << ":<" << columnTypes.at(columnNames[i]) << ">"; */
+/*     } */
+/*     return formattedHeader.str(); */
+/* } */
+/* std::string formatHeader(const std::vector<std::pair<std::string, std::string>>& columnNames, size_t rowCount) { */
+/*     std::ostringstream formattedHeader; */
+/*     for (size_t i = 0; i < columnNames.size(); ++i) { */
+/*         if (i > 0) { */
+/*             formattedHeader << ","; */
+/*         } */
+
+/*         // Find the column type by iterating through the vector */
+/*         auto it = std::find_if(columnTypes.begin(), columnTypes.end(), */
+/*                                [&columnNames, i](const std::pair<std::string, std::string>& p) { */
+/*                                    return p.first == columnNames[i]; */
+/*                                }); */
+
+/*         // If the column type is found, format it */
+/*         if (it != columnTypes.end()) { */
+/*             formattedHeader << columnNames[i] << ":" << rowCount << ":<" << it->second << ">"; */
+/*         } else { */
+/*             // If no matching column type is found, we can either throw an error or use a default value */
+/*             formattedHeader << columnNames[i] << ":" << rowCount << ":<Unknown>"; */
+/*         } */
+/*     } */
+/*     return formattedHeader.str(); */
+/* } */
+
+std::string formatHeader(const std::vector<std::pair<std::string, std::string>>& columnNames, size_t rowCount) {
     std::ostringstream formattedHeader;
     for (size_t i = 0; i < columnNames.size(); ++i) {
         if (i > 0) {
             formattedHeader << ",";
         }
-        formattedHeader << columnNames[i] << ":" << rowCount << ":<" << columnTypes.at(columnNames[i]) << ">";
+        // Access column name and type directly from the pair in columnNames
+        formattedHeader << columnNames[i].first << ":" << rowCount << ":<" << columnNames[i].second << ">";
     }
     return formattedHeader.str();
 }

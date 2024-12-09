@@ -7,9 +7,7 @@
 
 class CSVParser {
 private:
-    std::vector<std::string> columnNames;
-    std::unordered_map<std::string, std::string> columnTypes;
-
+    std::vector<std::pair<std::string, std::string>> columnNames;
 public:
     void parse(const std::string& inputFilename, const std::string& outputFilename) {
         std::ifstream inputFile(inputFilename);
@@ -39,14 +37,14 @@ public:
             std::stringstream headerStream(headerLine);
             std::string columnName;
             while (std::getline(headerStream, columnName, ',')) {
-                columnNames.push_back(cleanString(columnName));
+                columnNames.emplace_back(cleanString(columnName), "Unknown");
             }
-            columnNames[0] = "INDEX";
+            columnNames[0].first = "INDEX";
 
-            // Initialize column types
-            for (const auto& name : columnNames) {
-                columnTypes[name] = "Unknown";
-            }
+            /* // Initialize column types */
+            /* for (const auto& name : columnNames) { */
+            /*     columnTypes[name] = "Unknown"; */
+            /* } */
 
             // Parse data rows
             size_t rowCount = 0;
@@ -57,7 +55,7 @@ public:
                 size_t colIndex = 0;
                 while (std::getline(rowStream, cell, ',')) {
                     if (colIndex >= columnNames.size()) break;
-                    updateColumnType(columnNames[colIndex], cleanString(cell), columnTypes);
+                    updateColumnType(columnNames[colIndex].first, cleanString(cell), columnNames);
                     ++colIndex;
                 }
                 ++rowCount;
@@ -65,7 +63,7 @@ public:
             }
 
             /* // Write formatted header to retrieve infos later */
-            std::string newHeader = formatHeader(columnNames, rowCount, columnTypes);
+            std::string newHeader = formatHeader(columnNames, rowCount);
             std::ofstream headerFile("header_info.txt");
             std::cout << "HEADER FILE PRINTED" << std::endl;
 
@@ -106,8 +104,8 @@ public:
              outputFile.close(); 
         }
     }
-    std::unordered_map<std::string, std::string>* getColumnTypes() {
-        return &columnTypes;
+    std::vector<std::pair<std::string, std::string>> getColumnTypes() {
+        return columnNames;
     }
 
 };

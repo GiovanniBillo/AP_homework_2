@@ -50,7 +50,7 @@ private:
     hmdf::StdDataFrame<T> df;
 
     // Dictionary to store column names and their types
-    std::unordered_map<std::string, std::string>* columnInfo = nullptr; // Pointer to columnTypes
+    std::vector<std::pair<std::string, std::string>> columnInfo;
  
 public:
     explicit DataFrameWrapper() 
@@ -82,9 +82,9 @@ public:
         parser.parse(if_path.string(), of_path.string()); 
         
         columnInfo = parser.getColumnTypes();
-        if (!columnInfo) {
-            throw std::runtime_error("Column types not set. Please initialize columnInfo.");
-        }
+        /* if (!columnInfo) { */
+        /*     throw std::runtime_error("Column types not set. Please initialize columnInfo."); */
+        /* } */
 
         /* std::cout << "Column types:\n"; */
         /* for (const auto& t: *columnInfo) { */
@@ -100,12 +100,12 @@ public:
     }
     
     size_t getColIndex(const char * columnName){
-        int index = 0; // Initialize index counter
-        for (const auto& [key, value] : *columnInfo) {
-            if (key == columnName) {
-                return index; // Return the index when the key matches
-            }
-            ++index; // Increment the index for each element
+        int index = -1; // skip the initial index column 
+        for (const auto& [name, type] : columnInfo) {  // We're ignoring the second value (type) using `_`
+        if (name == columnName) {
+            return index;  // Return the index when the column name matches
+        }
+        ++index;  // Increment the index for each element
         }
         throw std::runtime_error(std::string("Column \"") + columnName + "\" not found in ColumnInfo");
 
