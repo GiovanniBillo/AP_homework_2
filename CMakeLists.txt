@@ -47,9 +47,24 @@ add_definitions(-DDATA_DIR=\"${DATA_DIR}\")
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
+# set(CMAKE\_BUILD\_TYPE Debug)
+# if(NOT ${CMAKE\_BUILD\_TYPE} STREQUAL "Debug" OR NOT ${CMAKE\_BUILD\_TYPE} STREQUAL "Release")
+# set(CMAKE\_BUILD\_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
+# endif(
 
-# Add the debugging flag
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g") # !!!TODO: modify with optimizations when releasing
+if(${CMAKE\_BUILD\_TYPE} STREQUAL "Debug")
+    message(STATUS "building DEBUG version")
+    set(CMAKE\_CXX\_FLAGS "${CMAKE\_CXX\_FLAGS} -O0 -g -Wall -Wpedantic -Wextra")
+    set(CMAKE\_RUNTIME\_OUTPUT\_DIRECTORY ${CMAKE\_PROJECT\_DIR}) # TODO:perhaps add bin/build and bin/release
+else() #(${CMAKE\_BUILD\_TYPE} STREQUAL "Release") -> if debug mode is not specifically demanded build release version with optimizations
+    message(STATUS "building RELEASE version (default)")
+    set(CMAKE\_CXX\_FLAGS "${CMAKE\_CXX\_FLAGS} -g0 -O2 -DNDEBUG -Wall -Werror")
+    set(CMAKE\_RUNTIME\_OUTPUT\_DIRECTORY ${CMAKE\_PROJECT\_DIR})
+endif()
+
+# # Add the debugging flag
+# if (CMAKE_BUILD_TYPE)
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g") #
 
 include(FetchContent)
 

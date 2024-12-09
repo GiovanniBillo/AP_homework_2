@@ -50,7 +50,7 @@ private:
     hmdf::StdDataFrame<T> df;
 
     // Dictionary to store column names and their types
-    std::unordered_map<std::string, std::string>* columnInfo = nullptr; // Pointer to columnTypes
+    std::vector<std::pair<std::string, std::string>> columnInfo; // Pointer to columnTypes
  
 public:
     explicit DataFrameWrapper() 
@@ -82,9 +82,9 @@ public:
         parser.parse(if_path.string(), of_path.string()); 
         
         columnInfo = parser.getColumnTypes();
-        if (!columnInfo) {
-            throw std::runtime_error("Column types not set. Please initialize columnInfo.");
-        }
+        /* if (!columnInfo) { */
+        /*     throw std::runtime_error("Column types not set. Please initialize columnInfo."); */
+        /* } */
 
         /* std::cout << "Column types:\n"; */
         /* for (const auto& t: *columnInfo) { */
@@ -94,15 +94,14 @@ public:
         // DataFrame requires file input for read to be in C-style string
         const char* c_path = of_path.c_str();
          
-
         df.read(c_path, io_format::csv2);
         
     }
     
     size_t getColIndex(const char * columnName){
         int index = 0; // Initialize index counter
-        for (const auto& [key, value] : *columnInfo) {
-            if (key == columnName) {
+        for (const auto& col : columnInfo) {
+            if (col.first== columnName) {
                 return index; // Return the index when the key matches
             }
             ++index; // Increment the index for each element

@@ -1,0 +1,1 @@
+/usr/bin/c++  -O0 -g -Wall -Wpedantic -Wextra -g CMakeFiles/main.dir/src/main.cpp.o -o main  _deps/dataframe-build/libDataFrame.a -lrt 

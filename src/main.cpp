@@ -18,9 +18,9 @@ int main(int, char *[])  {
     const char * columnName2 = "Profit"; //index = 6
     std::cout << "Retrieving each information by itself" << std::endl;
     const auto &discountColumn = dfw.columns<double>(columnName1); 
-    /* size_t discountIndex = dfw.getColIndex(columnName1); //TODO: solve this function bug: segmentation fault after a few iterations idk why */
+    size_t discountIndex = dfw.getColIndex(columnName1); 
     /* size_t discountIndex = 4; // just for it to work */
-    const auto &discountColumn_byindex = dfw.columns<double>(4); 
+    const auto &discountColumn_byindex = dfw.columns<double>(discountIndex); 
     const auto &discountColumn_entry_byindex = dfw.columns<double>(4, 1); // retrieve the first entry of the discount column  
     const auto &discountColumn_slice= dfw.columns<double>(4, 1, 4); // retrieve the first entry of the discount column  
     std::cout << discountColumn[1] << discountColumn[2] << discountColumn[3] << std::endl;

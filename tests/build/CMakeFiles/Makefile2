@@ -149,8 +149,8 @@ _deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMake
 # Target rules for target CMakeFiles/tests.dir
 
 # All Build rule for target.
-CMakeFiles/tests.dir/all: _deps/dataframe-build/CMakeFiles/DataFrame.dir/all
 CMakeFiles/tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+CMakeFiles/tests.dir/all: _deps/dataframe-build/CMakeFiles/DataFrame.dir/all
 CMakeFiles/tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build

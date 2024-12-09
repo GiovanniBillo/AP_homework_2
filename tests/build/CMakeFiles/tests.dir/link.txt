@@ -1,1 +1,1 @@
-/usr/bin/c++  -Wall -Wpedantic -g -g -Wall -Wpedantic CMakeFiles/tests.dir/test_customvisitors.cpp.o -o tests  lib/libgtest_main.a _deps/dataframe-build/libDataFrame.a lib/libgtest.a -lrt 
+/usr/bin/c++  -Wall -Wpedantic CMakeFiles/tests.dir/test_customvisitors.cpp.o -o tests  lib/libgtest_main.a _deps/dataframe-build/libDataFrame.a lib/libgtest.a -lrt 

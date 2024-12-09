@@ -1,0 +1,1 @@
+INDEX:100:<Unknown>,OrderID:100:<Unknown>,OrderDate:100:<Unknown>,ShipDate:100:<Unknown>,ShipMode:100:<Unknown>,Discount:100:<Unknown>,Sales:100:<Unknown>,Profit:100:<Unknown>

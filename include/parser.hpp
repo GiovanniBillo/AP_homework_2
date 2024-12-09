@@ -8,7 +8,7 @@
 class CSVParser {
 private:
     std::vector<std::string> columnNames;
-    std::unordered_map<std::string, std::string> columnTypes;
+    std::vector<std::pair<std::string, std::string>> columnTypes;
 
 public:
     void parse(const std::string& inputFilename, const std::string& outputFilename) {
@@ -44,8 +44,12 @@ public:
             columnNames[0] = "INDEX";
 
             // Initialize column types
-            for (const auto& name : columnNames) {
-                columnTypes[name] = "Unknown";
+            /* for (const auto& pair : columnNames) { */
+            /*     columnTypes[pair].second = "Unknown"; */
+            /* } */
+            // Using an iterator to access the pairs
+            for (auto it = columnTypes.begin(); it != columnTypes.end(); ++it) {
+                          it->second = "Unknown";
             }
 
             // Parse data rows
@@ -106,7 +110,9 @@ public:
              outputFile.close(); 
         }
     }
-    std::unordered_map<std::string, std::string>* getColumnTypes() {
+    
+    // version with unique_ptr to avoid dangling pointers
+    std::vector<std::pair<std::string, std::string>> getColumnTypes() {
         return &columnTypes;
     }
 

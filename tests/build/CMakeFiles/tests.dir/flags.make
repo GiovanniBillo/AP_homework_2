@@ -6,5 +6,5 @@ CXX_DEFINES = -DDATA_DIR=\"/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanc
 
 CXX_INCLUDES = -I/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/../include -I/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/../src -I/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-src/include -isystem /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/googletest-src/googletest/include -isystem /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/googletest-src/googletest
 
-CXX_FLAGS =  -Wall -Wpedantic -g -g -Wall -Wpedantic -std=gnu++23
+CXX_FLAGS =  -Wall -Wpedantic -std=gnu++23
 

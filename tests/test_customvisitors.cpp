@@ -159,6 +159,7 @@ TEST(CustomVisitorsTests, ClassifyVisitor) {
             }
         }
 }
+
 }
 
 int main(int argc, char **argv) {
