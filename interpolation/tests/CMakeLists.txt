@@ -69,11 +69,22 @@ FetchContent_Declare(
 # Ensure the ALGLIB library is downloaded and built
 FetchContent_MakeAvailable(alglib)
 
+# Fetch GoogleTest
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        v1.14.0
+)
+FetchContent_MakeAvailable(googletest)
+
 # Add the executable
-add_executable(main main.cpp)
+add_executable(tests test_interpolation.cpp)
 
 # If ALGLIB is header-only or doesn't provide a library target:
-target_include_directories(main PRIVATE ${alglib_SOURCE_DIR}/src)
+target_include_directories(tests PRIVATE 
+    ${alglib_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/../
+)
 
 # If ALGLIB provides a CMake target (for example, alglib::alglib), link it
 # Uncomment the line below if a proper CMake target is available
@@ -85,8 +96,24 @@ file(GLOB ALGLIB_SRC
 )
 
 # Link the source files to your project if ALGLIB doesn't have a CMake target
-target_sources(main PRIVATE ${ALGLIB_SRC})
+target_sources(tests PRIVATE ${ALGLIB_SRC})
 
 # Message to confirm the source directory of ALGLIB
 message(STATUS "ALGLIB source dir: ${alglib_SOURCE_DIR}")
+
+# Print the paths being added to the include directories
+message("Include path 1: ${CMAKE_CURRENT_SOURCE_DIR}/../")
+message("Include path 2: ${alglib_SOURCE_DIR}/src")
+
+# Link libraries
+target_link_libraries(tests PRIVATE
+    GTest::gtest_main
+    # alglib::alglib
+)
+
+enable_testing()
+include(GoogleTest)
+gtest_discover_tests(tests)
+
+
 
