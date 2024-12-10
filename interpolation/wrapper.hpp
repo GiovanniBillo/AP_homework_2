@@ -83,14 +83,15 @@ public:
         };
 
         alglib::real_1d_array x_ , y_;
-        for (size_t i = 0; i < y.size(); ++i) {
-            y_[i] = y[i];
-            x_[i] = x[i];
-        }
+        x_.setcontent(x.data());
+        y_.setcontent(y.data());
+        /* for (size_t i = 0; i < y.size(); ++i) { */
+        /*     y_[i] = y[i]; */
+        /*     x_[i] = x[i]; */
+        /* } */
         
         // Costruzione dell'interpolante 
         alglib::polynomialbuild(x_,y_,n,p_);
-
 }
     // Metodo per costruire il modello di Lagrange con griglia equidistante
     void buildEquidistant(const std::vector<T> y, int n, double a, double b) {
