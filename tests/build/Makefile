@@ -249,29 +249,29 @@ DataFrame/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/dataframe-build/CMakeFiles/DataFrame.dir/build.make _deps/dataframe-build/CMakeFiles/DataFrame.dir/build
 .PHONY : DataFrame/fast
 
-test_customvisitors.o: test_customvisitors.cpp.o
-.PHONY : test_customvisitors.o
+test_statsmodule.o: test_statsmodule.cpp.o
+.PHONY : test_statsmodule.o
 
 # target to build an object file
-test_customvisitors.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/test_customvisitors.cpp.o
-.PHONY : test_customvisitors.cpp.o
+test_statsmodule.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/test_statsmodule.cpp.o
+.PHONY : test_statsmodule.cpp.o
 
-test_customvisitors.i: test_customvisitors.cpp.i
-.PHONY : test_customvisitors.i
+test_statsmodule.i: test_statsmodule.cpp.i
+.PHONY : test_statsmodule.i
 
 # target to preprocess a source file
-test_customvisitors.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/test_customvisitors.cpp.i
-.PHONY : test_customvisitors.cpp.i
+test_statsmodule.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/test_statsmodule.cpp.i
+.PHONY : test_statsmodule.cpp.i
 
-test_customvisitors.s: test_customvisitors.cpp.s
-.PHONY : test_customvisitors.s
+test_statsmodule.s: test_statsmodule.cpp.s
+.PHONY : test_statsmodule.s
 
 # target to generate assembly for a file
-test_customvisitors.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/test_customvisitors.cpp.s
-.PHONY : test_customvisitors.cpp.s
+test_statsmodule.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/test_statsmodule.cpp.s
+.PHONY : test_statsmodule.cpp.s
 
 # Help Target
 help:
@@ -292,9 +292,9 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... tests"
-	@echo "... test_customvisitors.o"
-	@echo "... test_customvisitors.i"
-	@echo "... test_customvisitors.s"
+	@echo "... test_statsmodule.o"
+	@echo "... test_statsmodule.i"
+	@echo "... test_statsmodule.s"
 .PHONY : help
 
 

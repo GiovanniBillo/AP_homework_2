@@ -69,28 +69,28 @@ include CMakeFiles/tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/tests.dir/flags.make
 
-CMakeFiles/tests.dir/test_customvisitors.cpp.o: CMakeFiles/tests.dir/flags.make
-CMakeFiles/tests.dir/test_customvisitors.cpp.o: ../test_customvisitors.cpp
-CMakeFiles/tests.dir/test_customvisitors.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/test_customvisitors.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/test_customvisitors.cpp.o -MF CMakeFiles/tests.dir/test_customvisitors.cpp.o.d -o CMakeFiles/tests.dir/test_customvisitors.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/test_customvisitors.cpp
+CMakeFiles/tests.dir/test_statsmodule.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/test_statsmodule.cpp.o: ../test_statsmodule.cpp
+CMakeFiles/tests.dir/test_statsmodule.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tests.dir/test_statsmodule.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/test_statsmodule.cpp.o -MF CMakeFiles/tests.dir/test_statsmodule.cpp.o.d -o CMakeFiles/tests.dir/test_statsmodule.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/test_statsmodule.cpp
 
-CMakeFiles/tests.dir/test_customvisitors.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/test_customvisitors.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/test_customvisitors.cpp > CMakeFiles/tests.dir/test_customvisitors.cpp.i
+CMakeFiles/tests.dir/test_statsmodule.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/test_statsmodule.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/test_statsmodule.cpp > CMakeFiles/tests.dir/test_statsmodule.cpp.i
 
-CMakeFiles/tests.dir/test_customvisitors.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/test_customvisitors.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/test_customvisitors.cpp -o CMakeFiles/tests.dir/test_customvisitors.cpp.s
+CMakeFiles/tests.dir/test_statsmodule.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/test_statsmodule.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/test_statsmodule.cpp -o CMakeFiles/tests.dir/test_statsmodule.cpp.s
 
 # Object files for target tests
 tests_OBJECTS = \
-"CMakeFiles/tests.dir/test_customvisitors.cpp.o"
+"CMakeFiles/tests.dir/test_statsmodule.cpp.o"
 
 # External object files for target tests
 tests_EXTERNAL_OBJECTS =
 
-tests: CMakeFiles/tests.dir/test_customvisitors.cpp.o
+tests: CMakeFiles/tests.dir/test_statsmodule.cpp.o
 tests: CMakeFiles/tests.dir/build.make
 tests: lib/libgtest_main.a
 tests: _deps/dataframe-build/libDataFrame.a

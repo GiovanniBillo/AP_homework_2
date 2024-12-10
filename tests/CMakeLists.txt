@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add compiler flags for debugging
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Wall -Wpedantic")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic")
 
 include(FetchContent)
 
@@ -28,7 +28,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(DataFrame)
 
 # Add the tests executable
-add_executable(tests test_customvisitors.cpp)
+add_executable(tests test_statsmodule.cpp)
 
 if(DEFINED DATA_DIR)
   message(STATUS "Using user-specified data directory: ${DATA_DIR}")

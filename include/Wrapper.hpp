@@ -94,7 +94,6 @@ public:
         // DataFrame requires file input for read to be in C-style string
         const char* c_path = of_path.c_str();
          
-
         df.read(c_path, io_format::csv2);
         
     }
@@ -120,19 +119,20 @@ public:
     // return a column by index
     template <typename CT>
     const auto columns(std::size_t col_index) const {
-    /* if (col_index >= columnInfo->size()) { */
-    /*      throw std::out_of_range("Invalid range: column index is out of bounds"); */
-    /* } */
+    if (col_index >= columnInfo.size()) {
+         throw std::out_of_range("Invalid range: column index is out of bounds"); 
+    } 
         return df.template get_column<CT>(col_index);
     }
     
     // return a column entry
     template <typename CT>
     const auto columns(std::size_t col_index, std::size_t row_index) const {
+        if (col_index >= columnInfo.size()) {
+             throw std::out_of_range("Invalid range: column or row index is out of bounds");
+             exit(1);
+        }
         const auto &column =  df.template get_column<CT>(col_index);
-        /* if (col_index >= columnInfo->size() || row_index > column.size()) { */ //TODO: debug error handling  blocks
-        /*     throw std::out_of_range("Invalid range: column or row index is out of bounds"); */
-        /* } */
         CT entry = column[row_index]; 
         return entry;
     }
@@ -140,11 +140,11 @@ public:
     // return a column slice 
     template <typename CT>
     const auto columns(std::size_t col_index, std::size_t start, std::size_t stop) const {
-        const auto &column =  df.template get_column<CT>(col_index);
         // Check that start and stop are within bounds
-        /* if (start >= column.size() || stop >= column.size() || start > stop) { */
-        /*     throw std::out_of_range("Invalid slice range: start or stop index is out of bounds"); */
-        /* } */
+        const auto &column =  df.template get_column<CT>(col_index);
+        if (start >= column.size() || stop >= column.size() || start > stop) { 
+             throw std::out_of_range("Invalid slice range: start or stop index is out of bounds"); 
+        }
         std::vector<CT> slice;
         for (size_t i = start; i <= stop; ++i){
             slice.push_back(column[i]); 
@@ -153,16 +153,6 @@ public:
         return slice;
     }
 
-    /* // return a series of values */ 
-    /* template <typename CT> */
-    /* const auto columns(std::size_t index1, std::size_t index2) const { */
-    /*     const auto column =  df.template get_column<CT>(index); */
-    /*     CT entry = column[index2]; */ 
-    /*     return entry; */
-    /* } */
-
-
-    /* } */
     template <typename CT>
     auto StandardDeviation(const char* columnName) {
         // Create the visitor inline
@@ -271,7 +261,7 @@ public:
         desc.template write<std::ostream, double>(std::cout, io_format::csv2);
 
         // Write to a text file
-        std::ofstream outFile("dataset_info.txt");
+        std::ofstream outFile(inputFilename+"_info.txt");
         if (outFile.is_open()) {
             std::ostream& outStream = outFile; // Bind to std::ostream
             desc.template write<std::ostream, double>(outStream, io_format::csv2);

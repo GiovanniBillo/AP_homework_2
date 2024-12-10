@@ -6,5 +6,5 @@ CXX_DEFINES = -DHMDF_HAVE_CLOCK_GETTIME
 
 CXX_INCLUDES = -I/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-src/include
 
-CXX_FLAGS =  -Wall -Wpedantic -g -g -Wall -Wpedantic -std=gnu++23
+CXX_FLAGS = -std=gnu++23
 
