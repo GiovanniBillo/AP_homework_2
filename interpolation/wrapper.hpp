@@ -82,9 +82,15 @@ public:
             throw std::invalid_argument("x and y vectors ust have the same size.");
         };
 
+        const double * idx_x;
+        idx_x = x.data(); 
+        const double * idx_y;
+        idx_y = y.data(); 
+
+
         alglib::real_1d_array x_ , y_;
-        x_.setcontent(x.data());
-        y_.setcontent(y.data());
+        x_.setcontent(n, idx_x);
+        y_.setcontent(n, idx_y);
         /* for (size_t i = 0; i < y.size(); ++i) { */
         /*     y_[i] = y[i]; */
         /*     x_[i] = x[i]; */
@@ -159,15 +165,19 @@ public:
     SplineInterpolator() = default;
 
     // Costruzione dell'interpolante spline cubica 
-    void build(const alglib::real_1d_array x, const alglib::real_1d_array y) {
-        if (x.length() != y.length()) {
+    void build(const std::vector<T> x, const std::vector<T> y) {
+        if (x.size() != y.size()) {
             throw std::invalid_argument("x and y vectors must have the same size.");
         }
+        const double * idx_x;
+        idx_x = x.data(); 
+        const double * idx_y;
+        idx_y = y.data(); 
 
-        x_ = x;
-        y_ = y;
+        x_.setcontent(x.size(), idx_x);
+        y_.setcontent(y.size(), idx_y);
         
-         alglib::spline1dbuildcubic(x_, y_,s_);
+        alglib::spline1dbuildcubic(x_, y_,s_);
 
     }
 
@@ -180,3 +190,4 @@ public:
 
 
 #endif
+
