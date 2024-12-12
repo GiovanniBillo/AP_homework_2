@@ -7,12 +7,13 @@
 #include <string>
 #include <filesystem>
 
-#include "Wrapper.hpp"
+#include "DataFrameWrapper.hpp"
 
+using namespace Toolbox;
 
 int main(int, char *[])  {
 
-    DataFrameWrapper<int> dfw("r.csv", "o.csv"); // modify the type template according to your index column (if not an already formatted dataset, it will be assigned an int type to the first column, usually the Row index)
+    Toolbox::dfw::DataFrameWrapper<int> dfw("r.csv", "o.csv"); // modify the type template according to your index column (if not an already formatted dataset, it will be assigned an int type to the first column, usually the Row index)
     dfw.loadAndReadFile();
     const char * columnName1 = "Discount"; // index = 4
     const char * columnName2 = "Profit"; //index = 6

@@ -1,35 +1,3 @@
-# cmake_minimum_required(VERSION 3.22)
-# project(main LANGUAGES CXX)
-
-# set(CMAKE_CXX_STANDARD 23)
-# set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# if(DEFINED DATA_DIR)
-#   message(STATUS "Using user-specified data directory: ${DATA_DIR}")
-# else()
-#   set(DATA_DIR ${CMAKE_CURRENT_SOURCE_DIR}/data)
-#   message(STATUS "Using default data directory: ${DATA_DIR}")
-# endif()
-
-# add_definitions(-DDATA_DIR=\"${DATA_DIR}\")
-
-# include(FetchContent)
-
-# # Fetch the DataFrame library
-# FetchContent_Declare(
-#     DataFrame
-#     GIT_REPOSITORY https://github.com/hosseinmoein/DataFrame.git
-#     # GIT_TAG v1.18.0 # Replace with the desired stable version tag
-# )
-
-# # Ensure the DataFrame library is downloaded and built
-# FetchContent_MakeAvailable(DataFrame)
-
-# # Add the executable
-# add_executable(main main.cpp)
-
-# # Link the DataFrame library
-# target_link_libraries(main PRIVATE DataFrame::DataFrame)
 cmake_minimum_required(VERSION 3.22)
 project(main LANGUAGES CXX)
 
@@ -69,37 +37,43 @@ add_executable(main src/main.cpp)
 # Link the DataFrame library
 target_link_libraries(main PRIVATE DataFrame::DataFrame)
 
-# # Separate testing configuration
-# option(BUILD_TESTING "Enable testing" ON)
+ # Define a flag
+ option(INTERPOLATION_MODULE "Include the InterpolationWrapper and Interpolate custom visitor" OFF)
 
-# # Add the tests subdirectory
-# add_subdirectory(tests)
+# Conditionally include a library and headers
+if(INTERPOLATION_MODULE)
+    message(STATUS "Include the InterpolationWrapper and Interpolate custom visitor")
+    
+    # # Add custom library
+    # add_library(CustomLib STATIC custom_library.cpp)
 
-# if(BUILD_TESTING)
-#     # Enable testing
-#     enable_testing()
+    # Fetch the ALGLIB library
+    FetchContent_Declare(
+       alglib 
+        GIT_REPOSITORY https://github.com/hjkuijf/ALGLIB
+        # GIT_TAG v1.18.0 # Uncomment to use a specific version or tag
+    )
 
-#     # Fetch Google Test
-#     FetchContent_Declare(
-#         googletest
-#         GIT_REPOSITORY https://github.com/google/googletest.git
-#         GIT_TAG release-1.12.1 # Use the latest stable tag
-#     )
+    # Ensure the ALGLIB library is downloaded and built
+    FetchContent_MakeAvailable(alglib)
 
-#     FetchContent_MakeAvailable(googletest)
+    # If ALGLIB is header-only or doesn't provide a library target:
+    target_include_directories(main PRIVATE ${alglib_SOURCE_DIR}/src)
 
-#     # Add the test executable
-#     add_executable(tests tests/test_main.cpp)
+    # If ALGLIB provides a CMake target (for example, alglib::alglib), link it
+    # Uncomment the line below if a proper CMake target is available
+    # target_link_libraries(main PRIVATE alglib::alglib)
 
-#     # Link Google Test and your project's dependencies to the test executable
-#     target_link_libraries(tests PRIVATE 
-#         GTest::gtest 
-#         GTest::gtest_main 
-#         DataFrame::DataFrame
-#     )
+    # Manually add the source files if ALGLIB doesn't provide a CMake target
+    file(GLOB ALGLIB_SRC 
+        ${alglib_SOURCE_DIR}/src/*.cpp
+    )
 
-#     # Register tests
-#     include(GoogleTest)
-#     gtest_discover_tests(tests)
-# endif()
+
+    # Link the source files to your project if ALGLIB doesn't have a CMake target
+    target_sources(main PRIVATE ${ALGLIB_SRC})
+
+else()
+    message(STATUS "Interpolation module is not included")
+endif()
 

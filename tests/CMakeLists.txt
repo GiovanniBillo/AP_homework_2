@@ -10,6 +10,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Wall -Wpedantic")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic")
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
+
 include(FetchContent)
 
 # Fetch GoogleTest
@@ -27,8 +31,35 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(DataFrame)
 
+# Fetch the ALGLIB library
+FetchContent_Declare(
+   alglib 
+    GIT_REPOSITORY https://github.com/hjkuijf/ALGLIB
+    # GIT_TAG v1.18.0 # Uncomment to use a specific version or tag
+)
+
+# Ensure the ALGLIB library is downloaded and built
+FetchContent_MakeAvailable(alglib)
+
 # Add the tests executable
 add_executable(tests test_statsmodule.cpp)
+
+# If ALGLIB is header-only or doesn't provide a library target:
+target_include_directories(tests PRIVATE ${alglib_SOURCE_DIR}/src)
+
+# If ALGLIB provides a CMake target (for example, alglib::alglib), link it
+# Uncomment the line below if a proper CMake target is available
+# target_link_libraries(main PRIVATE alglib::alglib)
+
+# Manually add the source files if ALGLIB doesn't provide a CMake target
+file(GLOB ALGLIB_SRC 
+    ${alglib_SOURCE_DIR}/src/*.cpp
+)
+
+
+# Link the source files to your project if ALGLIB doesn't have a CMake target
+target_sources(tests PRIVATE ${ALGLIB_SRC})
+
 
 if(DEFINED DATA_DIR)
   message(STATUS "Using user-specified data directory: ${DATA_DIR}")
@@ -43,7 +74,9 @@ add_definitions(-DDATA_DIR=\"${DATA_DIR}\")
 target_include_directories(tests PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../include
     ${CMAKE_CURRENT_SOURCE_DIR}/../src
+    ${alglib_SOURCE_DIR}/src
 )
+message("ALGLIB SOURCE DIR IS: " ${alglib_SOURCE_DIR}/src)
 
 # Print the paths being added to the include directories
 message("Include path 1: ${CMAKE_CURRENT_SOURCE_DIR}/../include")
@@ -54,6 +87,11 @@ target_link_libraries(tests PRIVATE
     GTest::gtest_main
     DataFrame::DataFrame
 )
+
+
+
+# Message to confirm the source directory of ALGLIB
+message(STATUS "ALGLIB source dir: ${alglib_SOURCE_DIR}")
 
 enable_testing()
 include(GoogleTest)

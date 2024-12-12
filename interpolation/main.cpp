@@ -2,7 +2,7 @@
 /* #include "alglib/interpolation.h" */
 /* #include "interpolation.hpp" */  
 
-#include "wrapper.hpp"
+#include "InterpolateWrapper.hpp"
 
 using namespace alglib;
 

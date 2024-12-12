@@ -249,6 +249,318 @@ DataFrame/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/dataframe-build/CMakeFiles/DataFrame.dir/build.make _deps/dataframe-build/CMakeFiles/DataFrame.dir/build
 .PHONY : DataFrame/fast
 
+_deps/alglib-src/src/alglibinternal.o: _deps/alglib-src/src/alglibinternal.cpp.o
+.PHONY : _deps/alglib-src/src/alglibinternal.o
+
+# target to build an object file
+_deps/alglib-src/src/alglibinternal.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o
+.PHONY : _deps/alglib-src/src/alglibinternal.cpp.o
+
+_deps/alglib-src/src/alglibinternal.i: _deps/alglib-src/src/alglibinternal.cpp.i
+.PHONY : _deps/alglib-src/src/alglibinternal.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/alglibinternal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.i
+.PHONY : _deps/alglib-src/src/alglibinternal.cpp.i
+
+_deps/alglib-src/src/alglibinternal.s: _deps/alglib-src/src/alglibinternal.cpp.s
+.PHONY : _deps/alglib-src/src/alglibinternal.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/alglibinternal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.s
+.PHONY : _deps/alglib-src/src/alglibinternal.cpp.s
+
+_deps/alglib-src/src/alglibmisc.o: _deps/alglib-src/src/alglibmisc.cpp.o
+.PHONY : _deps/alglib-src/src/alglibmisc.o
+
+# target to build an object file
+_deps/alglib-src/src/alglibmisc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o
+.PHONY : _deps/alglib-src/src/alglibmisc.cpp.o
+
+_deps/alglib-src/src/alglibmisc.i: _deps/alglib-src/src/alglibmisc.cpp.i
+.PHONY : _deps/alglib-src/src/alglibmisc.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/alglibmisc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.i
+.PHONY : _deps/alglib-src/src/alglibmisc.cpp.i
+
+_deps/alglib-src/src/alglibmisc.s: _deps/alglib-src/src/alglibmisc.cpp.s
+.PHONY : _deps/alglib-src/src/alglibmisc.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/alglibmisc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.s
+.PHONY : _deps/alglib-src/src/alglibmisc.cpp.s
+
+_deps/alglib-src/src/ap.o: _deps/alglib-src/src/ap.cpp.o
+.PHONY : _deps/alglib-src/src/ap.o
+
+# target to build an object file
+_deps/alglib-src/src/ap.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o
+.PHONY : _deps/alglib-src/src/ap.cpp.o
+
+_deps/alglib-src/src/ap.i: _deps/alglib-src/src/ap.cpp.i
+.PHONY : _deps/alglib-src/src/ap.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/ap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.i
+.PHONY : _deps/alglib-src/src/ap.cpp.i
+
+_deps/alglib-src/src/ap.s: _deps/alglib-src/src/ap.cpp.s
+.PHONY : _deps/alglib-src/src/ap.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/ap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.s
+.PHONY : _deps/alglib-src/src/ap.cpp.s
+
+_deps/alglib-src/src/dataanalysis.o: _deps/alglib-src/src/dataanalysis.cpp.o
+.PHONY : _deps/alglib-src/src/dataanalysis.o
+
+# target to build an object file
+_deps/alglib-src/src/dataanalysis.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o
+.PHONY : _deps/alglib-src/src/dataanalysis.cpp.o
+
+_deps/alglib-src/src/dataanalysis.i: _deps/alglib-src/src/dataanalysis.cpp.i
+.PHONY : _deps/alglib-src/src/dataanalysis.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/dataanalysis.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.i
+.PHONY : _deps/alglib-src/src/dataanalysis.cpp.i
+
+_deps/alglib-src/src/dataanalysis.s: _deps/alglib-src/src/dataanalysis.cpp.s
+.PHONY : _deps/alglib-src/src/dataanalysis.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/dataanalysis.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.s
+.PHONY : _deps/alglib-src/src/dataanalysis.cpp.s
+
+_deps/alglib-src/src/diffequations.o: _deps/alglib-src/src/diffequations.cpp.o
+.PHONY : _deps/alglib-src/src/diffequations.o
+
+# target to build an object file
+_deps/alglib-src/src/diffequations.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o
+.PHONY : _deps/alglib-src/src/diffequations.cpp.o
+
+_deps/alglib-src/src/diffequations.i: _deps/alglib-src/src/diffequations.cpp.i
+.PHONY : _deps/alglib-src/src/diffequations.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/diffequations.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.i
+.PHONY : _deps/alglib-src/src/diffequations.cpp.i
+
+_deps/alglib-src/src/diffequations.s: _deps/alglib-src/src/diffequations.cpp.s
+.PHONY : _deps/alglib-src/src/diffequations.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/diffequations.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.s
+.PHONY : _deps/alglib-src/src/diffequations.cpp.s
+
+_deps/alglib-src/src/fasttransforms.o: _deps/alglib-src/src/fasttransforms.cpp.o
+.PHONY : _deps/alglib-src/src/fasttransforms.o
+
+# target to build an object file
+_deps/alglib-src/src/fasttransforms.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o
+.PHONY : _deps/alglib-src/src/fasttransforms.cpp.o
+
+_deps/alglib-src/src/fasttransforms.i: _deps/alglib-src/src/fasttransforms.cpp.i
+.PHONY : _deps/alglib-src/src/fasttransforms.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/fasttransforms.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.i
+.PHONY : _deps/alglib-src/src/fasttransforms.cpp.i
+
+_deps/alglib-src/src/fasttransforms.s: _deps/alglib-src/src/fasttransforms.cpp.s
+.PHONY : _deps/alglib-src/src/fasttransforms.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/fasttransforms.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.s
+.PHONY : _deps/alglib-src/src/fasttransforms.cpp.s
+
+_deps/alglib-src/src/integration.o: _deps/alglib-src/src/integration.cpp.o
+.PHONY : _deps/alglib-src/src/integration.o
+
+# target to build an object file
+_deps/alglib-src/src/integration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o
+.PHONY : _deps/alglib-src/src/integration.cpp.o
+
+_deps/alglib-src/src/integration.i: _deps/alglib-src/src/integration.cpp.i
+.PHONY : _deps/alglib-src/src/integration.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/integration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.i
+.PHONY : _deps/alglib-src/src/integration.cpp.i
+
+_deps/alglib-src/src/integration.s: _deps/alglib-src/src/integration.cpp.s
+.PHONY : _deps/alglib-src/src/integration.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/integration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.s
+.PHONY : _deps/alglib-src/src/integration.cpp.s
+
+_deps/alglib-src/src/interpolation.o: _deps/alglib-src/src/interpolation.cpp.o
+.PHONY : _deps/alglib-src/src/interpolation.o
+
+# target to build an object file
+_deps/alglib-src/src/interpolation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o
+.PHONY : _deps/alglib-src/src/interpolation.cpp.o
+
+_deps/alglib-src/src/interpolation.i: _deps/alglib-src/src/interpolation.cpp.i
+.PHONY : _deps/alglib-src/src/interpolation.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/interpolation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.i
+.PHONY : _deps/alglib-src/src/interpolation.cpp.i
+
+_deps/alglib-src/src/interpolation.s: _deps/alglib-src/src/interpolation.cpp.s
+.PHONY : _deps/alglib-src/src/interpolation.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/interpolation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.s
+.PHONY : _deps/alglib-src/src/interpolation.cpp.s
+
+_deps/alglib-src/src/linalg.o: _deps/alglib-src/src/linalg.cpp.o
+.PHONY : _deps/alglib-src/src/linalg.o
+
+# target to build an object file
+_deps/alglib-src/src/linalg.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o
+.PHONY : _deps/alglib-src/src/linalg.cpp.o
+
+_deps/alglib-src/src/linalg.i: _deps/alglib-src/src/linalg.cpp.i
+.PHONY : _deps/alglib-src/src/linalg.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/linalg.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.i
+.PHONY : _deps/alglib-src/src/linalg.cpp.i
+
+_deps/alglib-src/src/linalg.s: _deps/alglib-src/src/linalg.cpp.s
+.PHONY : _deps/alglib-src/src/linalg.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/linalg.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.s
+.PHONY : _deps/alglib-src/src/linalg.cpp.s
+
+_deps/alglib-src/src/optimization.o: _deps/alglib-src/src/optimization.cpp.o
+.PHONY : _deps/alglib-src/src/optimization.o
+
+# target to build an object file
+_deps/alglib-src/src/optimization.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o
+.PHONY : _deps/alglib-src/src/optimization.cpp.o
+
+_deps/alglib-src/src/optimization.i: _deps/alglib-src/src/optimization.cpp.i
+.PHONY : _deps/alglib-src/src/optimization.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/optimization.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.i
+.PHONY : _deps/alglib-src/src/optimization.cpp.i
+
+_deps/alglib-src/src/optimization.s: _deps/alglib-src/src/optimization.cpp.s
+.PHONY : _deps/alglib-src/src/optimization.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/optimization.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.s
+.PHONY : _deps/alglib-src/src/optimization.cpp.s
+
+_deps/alglib-src/src/solvers.o: _deps/alglib-src/src/solvers.cpp.o
+.PHONY : _deps/alglib-src/src/solvers.o
+
+# target to build an object file
+_deps/alglib-src/src/solvers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o
+.PHONY : _deps/alglib-src/src/solvers.cpp.o
+
+_deps/alglib-src/src/solvers.i: _deps/alglib-src/src/solvers.cpp.i
+.PHONY : _deps/alglib-src/src/solvers.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/solvers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.i
+.PHONY : _deps/alglib-src/src/solvers.cpp.i
+
+_deps/alglib-src/src/solvers.s: _deps/alglib-src/src/solvers.cpp.s
+.PHONY : _deps/alglib-src/src/solvers.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/solvers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.s
+.PHONY : _deps/alglib-src/src/solvers.cpp.s
+
+_deps/alglib-src/src/specialfunctions.o: _deps/alglib-src/src/specialfunctions.cpp.o
+.PHONY : _deps/alglib-src/src/specialfunctions.o
+
+# target to build an object file
+_deps/alglib-src/src/specialfunctions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o
+.PHONY : _deps/alglib-src/src/specialfunctions.cpp.o
+
+_deps/alglib-src/src/specialfunctions.i: _deps/alglib-src/src/specialfunctions.cpp.i
+.PHONY : _deps/alglib-src/src/specialfunctions.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/specialfunctions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.i
+.PHONY : _deps/alglib-src/src/specialfunctions.cpp.i
+
+_deps/alglib-src/src/specialfunctions.s: _deps/alglib-src/src/specialfunctions.cpp.s
+.PHONY : _deps/alglib-src/src/specialfunctions.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/specialfunctions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.s
+.PHONY : _deps/alglib-src/src/specialfunctions.cpp.s
+
+_deps/alglib-src/src/statistics.o: _deps/alglib-src/src/statistics.cpp.o
+.PHONY : _deps/alglib-src/src/statistics.o
+
+# target to build an object file
+_deps/alglib-src/src/statistics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o
+.PHONY : _deps/alglib-src/src/statistics.cpp.o
+
+_deps/alglib-src/src/statistics.i: _deps/alglib-src/src/statistics.cpp.i
+.PHONY : _deps/alglib-src/src/statistics.i
+
+# target to preprocess a source file
+_deps/alglib-src/src/statistics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.i
+.PHONY : _deps/alglib-src/src/statistics.cpp.i
+
+_deps/alglib-src/src/statistics.s: _deps/alglib-src/src/statistics.cpp.s
+.PHONY : _deps/alglib-src/src/statistics.s
+
+# target to generate assembly for a file
+_deps/alglib-src/src/statistics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.s
+.PHONY : _deps/alglib-src/src/statistics.cpp.s
+
 test_statsmodule.o: test_statsmodule.cpp.o
 .PHONY : test_statsmodule.o
 
@@ -292,6 +604,45 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... tests"
+	@echo "... _deps/alglib-src/src/alglibinternal.o"
+	@echo "... _deps/alglib-src/src/alglibinternal.i"
+	@echo "... _deps/alglib-src/src/alglibinternal.s"
+	@echo "... _deps/alglib-src/src/alglibmisc.o"
+	@echo "... _deps/alglib-src/src/alglibmisc.i"
+	@echo "... _deps/alglib-src/src/alglibmisc.s"
+	@echo "... _deps/alglib-src/src/ap.o"
+	@echo "... _deps/alglib-src/src/ap.i"
+	@echo "... _deps/alglib-src/src/ap.s"
+	@echo "... _deps/alglib-src/src/dataanalysis.o"
+	@echo "... _deps/alglib-src/src/dataanalysis.i"
+	@echo "... _deps/alglib-src/src/dataanalysis.s"
+	@echo "... _deps/alglib-src/src/diffequations.o"
+	@echo "... _deps/alglib-src/src/diffequations.i"
+	@echo "... _deps/alglib-src/src/diffequations.s"
+	@echo "... _deps/alglib-src/src/fasttransforms.o"
+	@echo "... _deps/alglib-src/src/fasttransforms.i"
+	@echo "... _deps/alglib-src/src/fasttransforms.s"
+	@echo "... _deps/alglib-src/src/integration.o"
+	@echo "... _deps/alglib-src/src/integration.i"
+	@echo "... _deps/alglib-src/src/integration.s"
+	@echo "... _deps/alglib-src/src/interpolation.o"
+	@echo "... _deps/alglib-src/src/interpolation.i"
+	@echo "... _deps/alglib-src/src/interpolation.s"
+	@echo "... _deps/alglib-src/src/linalg.o"
+	@echo "... _deps/alglib-src/src/linalg.i"
+	@echo "... _deps/alglib-src/src/linalg.s"
+	@echo "... _deps/alglib-src/src/optimization.o"
+	@echo "... _deps/alglib-src/src/optimization.i"
+	@echo "... _deps/alglib-src/src/optimization.s"
+	@echo "... _deps/alglib-src/src/solvers.o"
+	@echo "... _deps/alglib-src/src/solvers.i"
+	@echo "... _deps/alglib-src/src/solvers.s"
+	@echo "... _deps/alglib-src/src/specialfunctions.o"
+	@echo "... _deps/alglib-src/src/specialfunctions.i"
+	@echo "... _deps/alglib-src/src/specialfunctions.s"
+	@echo "... _deps/alglib-src/src/statistics.o"
+	@echo "... _deps/alglib-src/src/statistics.i"
+	@echo "... _deps/alglib-src/src/statistics.s"
 	@echo "... test_statsmodule.o"
 	@echo "... test_statsmodule.i"
 	@echo "... test_statsmodule.s"

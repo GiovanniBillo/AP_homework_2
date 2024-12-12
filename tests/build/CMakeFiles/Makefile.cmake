@@ -148,6 +148,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
   "_deps/googletest-subbuild/CMakeLists.txt"
   "_deps/dataframe-subbuild/CMakeLists.txt"
+  "_deps/alglib-subbuild/CMakeLists.txt"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"

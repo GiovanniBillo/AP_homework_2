@@ -52,11 +52,11 @@ set_target_properties(DataFrame::DataFrame PROPERTIES
   INTERFACE_LINK_LIBRARIES "Threads::Threads;\$<\$<AND:\$<BOOL:1>,\$<NOT:\$<BOOL:>>>:rt>"
 )
 
-# Import target "DataFrame::DataFrame" for configuration ""
-set_property(TARGET DataFrame::DataFrame APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
+# Import target "DataFrame::DataFrame" for configuration "Debug"
+set_property(TARGET DataFrame::DataFrame APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(DataFrame::DataFrame PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_NOCONFIG "CXX"
-  IMPORTED_LOCATION_NOCONFIG "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-build/libDataFrame.a"
+  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
+  IMPORTED_LOCATION_DEBUG "/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-build/libDataFrame.a"
   )
 
 # This file does not depend on other imported targets which have

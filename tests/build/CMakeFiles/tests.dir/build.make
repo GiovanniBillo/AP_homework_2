@@ -83,20 +83,228 @@ CMakeFiles/tests.dir/test_statsmodule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/test_statsmodule.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/test_statsmodule.cpp -o CMakeFiles/tests.dir/test_statsmodule.cpp.s
 
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o: _deps/alglib-src/src/alglibinternal.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibinternal.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibinternal.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibinternal.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o: _deps/alglib-src/src/alglibmisc.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibmisc.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibmisc.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibmisc.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o: _deps/alglib-src/src/ap.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/ap.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/ap.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/ap.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o: _deps/alglib-src/src/dataanalysis.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/dataanalysis.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/dataanalysis.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/dataanalysis.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o: _deps/alglib-src/src/diffequations.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/diffequations.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/diffequations.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/diffequations.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o: _deps/alglib-src/src/fasttransforms.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/fasttransforms.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/fasttransforms.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/fasttransforms.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o: _deps/alglib-src/src/integration.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/integration.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/integration.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/integration.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o: _deps/alglib-src/src/interpolation.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/interpolation.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/interpolation.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/interpolation.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o: _deps/alglib-src/src/linalg.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/linalg.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/linalg.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/linalg.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o: _deps/alglib-src/src/optimization.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/optimization.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/optimization.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/optimization.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o: _deps/alglib-src/src/solvers.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/solvers.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/solvers.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/solvers.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o: _deps/alglib-src/src/specialfunctions.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/specialfunctions.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/specialfunctions.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/specialfunctions.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.s
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o: CMakeFiles/tests.dir/flags.make
+CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o: _deps/alglib-src/src/statistics.cpp
+CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o: CMakeFiles/tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o -MF CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o.d -o CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o -c /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/statistics.cpp
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/statistics.cpp > CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.i
+
+CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/statistics.cpp -o CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.s
+
 # Object files for target tests
 tests_OBJECTS = \
-"CMakeFiles/tests.dir/test_statsmodule.cpp.o"
+"CMakeFiles/tests.dir/test_statsmodule.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o" \
+"CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o"
 
 # External object files for target tests
 tests_EXTERNAL_OBJECTS =
 
 tests: CMakeFiles/tests.dir/test_statsmodule.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/alglibinternal.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/alglibmisc.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/ap.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/dataanalysis.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/diffequations.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/fasttransforms.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/integration.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/interpolation.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/linalg.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/optimization.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/solvers.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/specialfunctions.cpp.o
+tests: CMakeFiles/tests.dir/_deps/alglib-src/src/statistics.cpp.o
 tests: CMakeFiles/tests.dir/build.make
 tests: lib/libgtest_main.a
 tests: _deps/dataframe-build/libDataFrame.a
 tests: lib/libgtest.a
 tests: CMakeFiles/tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tests.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -D TEST_TARGET=tests -D TEST_EXECUTABLE=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=tests_TESTS -D CTEST_FILE=/home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.22/Modules/GoogleTestAddTests.cmake
 

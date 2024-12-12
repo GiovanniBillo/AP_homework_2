@@ -421,7 +421,18 @@ CMakeFiles/tests.dir/test_statsmodule.cpp.o: \
  /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-src/include/DataFrame/Internals/DataFrame_sort.tcc \
  /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-src/include/DataFrame/Internals/DataFrame_visit.tcc \
  /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/dataframe-src/include/DataFrame/Internals/DataFrame_write.tcc \
- /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/../include/Wrapper.hpp \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/../include/InterpolateWrapper.hpp \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/interpolation.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/ap.h \
+ /usr/include/c++/13/math.h /usr/include/setjmp.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibinternal.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/alglibmisc.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/linalg.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/solvers.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/optimization.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/specialfunctions.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/build/_deps/alglib-src/src/integration.h \
+ /home/giovanni/Documents/uni/master/UNITS/DSAI/Advanced_Programming/homework_2/tests/../include/DataFrameWrapper.hpp \
  /usr/include/c++/13/filesystem /usr/include/c++/13/bits/fs_fwd.h \
  /usr/include/c++/13/bits/fs_path.h /usr/include/c++/13/codecvt \
  /usr/include/c++/13/bits/fs_dir.h /usr/include/c++/13/bits/fs_ops.h \

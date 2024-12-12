@@ -2,10 +2,13 @@
 /* #include <DataFrame/DataFrame.h>                   // Main DataFrame header */
 /* #include <DataFrame/DataFrameStatsVisitors.h>      // Statistical algorithms */
 #include "DataFrameCustomVisitors.hpp"
-#include "Wrapper.hpp"
+#include "DataFrameWrapper.hpp"
+#include "InterpolateWrapper.hpp"
 #include <filesystem>
 #include <string>
 #include <stdexcept>
+
+double tolerance = 0.01;
 
 TEST(CSVParserTest, DifferentDatasets) {
     DataFrameWrapper<std::string> bankData("bank.csv", "bank_out.csv");
@@ -266,6 +269,48 @@ TEST(CustomVisitorsTests, ClassifyVisitor) {
 }
 }
 
+TEST(CustomVisitorsTests, InterpolationVisitor) {
+    int lb = 0;
+    int ub = 50; 
+    double point = 4;
+    InterpolationVisitor<int, double> visitor1(point, lb, ub, "Linear");
+    InterpolationVisitor<int, double> visitor2(point, lb, ub, "LagrangeCasual");
+    InterpolationVisitor<int, double> visitor3(point, lb, ub, "LagrangeEquidistant");
+    InterpolationVisitor<int, double> visitor4(point, lb, ub, "LagrangeChebyshev");
+    InterpolationVisitor<int, double> visitor5(point, lb, ub, "Spline");
+    
+    hmdf::StdDataFrame<int> df;
+    std::filesystem::path data_directory = DATA_DIR;
+    std::filesystem::path path = data_directory / "data_interpolation.csv";
+    df.read(path.c_str(), hmdf::io_format::csv2);
+     
+    /* // Perform operations */
+    df.template single_act_visit<double, double>("X", "Y", visitor1); 
+    df.template single_act_visit<double, double>("X", "Y", visitor2); 
+    df.template single_act_visit<double, double>("X", "Y", visitor3); 
+    df.template single_act_visit<double, double>("X", "Y", visitor4); 
+    df.template single_act_visit<double, double>("X", "Y", visitor5);
+
+    // get results
+    double result_v1 = visitor1.get_result();  
+    double result_v2 = visitor2.get_result();  
+    double result_v3 = visitor3.get_result();  
+    double result_v4 = visitor4.get_result();  
+    double result_v5 = visitor5.get_result();  
+
+
+    EXPECT_NEAR(result_v1, 64, tolerance);
+    EXPECT_NEAR(result_v2, 64, tolerance);
+    EXPECT_NEAR(result_v3, 64, tolerance);
+    EXPECT_NEAR(result_v4, 64, tolerance);
+    EXPECT_NEAR(result_v5, 64, tolerance);
+
+    // Extra debugging: Triggered only if the test fails
+    if (HasFailure()) {
+        std::cerr << "Test failed. Debugging information:\n";
+
+}
+}
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
