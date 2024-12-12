@@ -52,7 +52,6 @@ namespace Toolbox{
                         if (x.size() != y.size()) {
                             throw std::invalid_argument("x and y vectors must have the same size.");
                         }   
-                        /* TODO: check if T is numeric */
                         x_ = x;
                         y_ = y;
                     }
@@ -197,19 +196,11 @@ namespace Toolbox{
                             throw std::invalid_argument("y vector size must be equal to n.");
                         }
 
-                        /*    // Generazione dei punti x equidistanti
-                              x_.resize(n);
-                              for (int i = 0; i < n; ++i) {
-                              x_[i] = a + (b - a) * i / (n - 1);
-                              }                                            */
-
                         alglib::real_1d_array y_;
                         const double * idx; 
                         idx = y.data(); 
                         y_.setcontent(n, idx);
-                        /* for (size_t i = 0; i < y.size(); ++i) { */
-                        /*     y_[i] = y[i]; */
-                        /* } */
+    
                         // Costruzione dell'interpolante 
                         alglib::polynomialbuildeqdist(a, b, y_, n, p_);
                     }
@@ -219,20 +210,13 @@ namespace Toolbox{
                             throw std::invalid_argument("f vector size must be equal to n.");
                         }
 
-                        /*   // Generazione dei punti x (Chebyshev)
-                             x_.resize(n);
-                             for (int i = 0; i < n; ++i) {
-                             x_[i] = 0.5 * (b + a) + 0.5 * (b - a) * cos(M_PI * (2 * i + 1) / (2 * n));
-                             }                                                                               */
+                                                                         
 
                         alglib::real_1d_array y_;
                         const double * idx; 
                         idx = y.data(); 
                         y_.setcontent(n, idx);
-
-                        /* for (size_t i = 0; i < y.size(); ++i) { */
-                        /*     y_[i] = y[i]; */
-                        /* } */
+                        
 
                         // Costruzione dell'interpolante
                         alglib::polynomialbuildcheb1(a, b, y_, n, p_);
