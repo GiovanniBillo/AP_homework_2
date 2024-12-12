@@ -22,21 +22,20 @@ namespace Toolbox{
         dataFile.close();
     }
 
-    // Function to create a GNUplot script
-    void createGnuplotScript(const std::string& dataFile, const std::string& outputFile, const std::string& scriptFile) {
-        std::ofstream script(scriptFile);
-        if (!script) {
-            std::cerr << "Error: Unable to create GNUplot script file " << scriptFile << ".\n";
-            return;
-        }
-        script << "set terminal pngcairo size 800,600\n";
-        script << "set output '" << outputFile << "'\n";
-        script << "set xlabel 'Number of Points (n)'\n";
-        script << "set ylabel 'Error'\n";
-        script << "set title 'Error vs Number of Points'\n";
-        script << "plot '" << dataFile << "' using 1:2 with linespoints title 'Error'\n";
-        script.close();
+void createGnuplotScript(const std::string& dataFile, const std::string& outputFile, const std::string& scriptFile, const std::string& methodName) {
+    std::ofstream script(scriptFile);
+    if (!script) {
+        std::cerr << "Error: Unable to create GNUplot script file " << scriptFile << ".\n";
+        return;
     }
+    script << "set terminal pngcairo size 800,600\n";
+    script << "set output '" << outputFile << "'\n";
+    script << "set xlabel 'Number of Points (n)'\n";
+    script << "set ylabel 'Error'\n";
+    script << "set title 'Error vs Number of Points (" << methodName << ")'\n";
+    script << "plot '" << dataFile << "' using 1:2 with linespoints title 'Error'\n";
+    script.close();
+}
         
 std::vector<double> Casual_Vec(int n, double lb, double ub) { // vector of n CASUAL points between lb e ub
 

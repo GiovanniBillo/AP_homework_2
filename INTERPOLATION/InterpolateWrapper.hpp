@@ -13,7 +13,8 @@ namespace Toolbox{
     namespace intw{ 
         template <typename T>
             class Interpolator {
-
+                private:
+                    std::vector<std::pair<int, double>> n_E;
                 public:
                     virtual ~Interpolator() = default;
 
@@ -32,7 +33,43 @@ namespace Toolbox{
                     //template <typename f>
                     virtual double Error(std::function<double(double)> f, double a, double b) = 0;
                     virtual void build(const std::vector<T> x,const std::vector<T> y, int n, double a, double b) = 0;
-                    virtual void plotError(Interpolator<T> & ip, std::function<T(T)> f, double a, double b, int k) = 0;
+                    /* virtual void plotError(Interpolator<T> & ip, std::function<T(T)> f, double a, double b, int k) = 0; */
+                    void plotError(std::function<T(T)> f, double lb, double ub, int max_points,
+               std::function<std::vector<double>(int, double, double)> fillXEquidFunc,
+               const std::string& methodName){
+
+    for (int i = 1; i < max_points; i++) {
+        int n = 2 * i;
+
+        // Use the provided fill_x_equid function
+        std::vector<double> x_equid = fillXEquidFunc(n, lb, ub);
+        std::vector<double> y = generateY(x_equid, f);
+        build(x_equid, y, y.size(), 2.0, 4.0);
+
+        double Errore = Error(f, lb, ub);
+        n_E.emplace_back(n, Errore);
+
+        // File names with method name attached
+        std::string dataFile = "error_data_" + methodName + ".dat";
+        std::string outputFile = "error_plot_" + methodName + ".png";
+        std::string scriptFile = "plot_script_" + methodName + ".gnuplot";
+
+        // Write data to a file
+        writeToFile(n_E, dataFile);
+
+        // Create GNUplot script
+        createGnuplotScript(dataFile, outputFile, scriptFile, methodName);
+
+        // Call GNUplot to generate the plot
+        int result = std::system(("gnuplot " + scriptFile).c_str());
+        if (result != 0) {
+            std::cerr << "Error: Failed to execute GNUplot.\n";
+        } else {
+            std::cout << "Plot successfully created: " << outputFile << "\n";
+        }
+    }
+}
+ 
 
             };
 
@@ -112,43 +149,6 @@ namespace Toolbox{
                         return y_.back();  // Se t è fuori intervallo, ritorna l'ultimo valore
                     }
 
-                    void plotError(Interpolator<T> & A,  std::function<T(T)> f, double lb, double ub, int max_points) override {
-
-                        for (size_t i = 1; i < max_points; i++){
-
-                            double n = 2*i;
-
-                            std::vector<double> x_equid = fill_x_equid(n, lb, ub);
-                            std::vector<double> y = A.generateY(x_equid , f);
-
-                            A.build(x_equid , y, y.size(), 2.0, 4.0);
-
-                            double Errore = A.Error(f,lb,ub);
-                            n_E.emplace_back(n, Errore);
-
-
-                            // std::cout << n << " LINEAR EQUID --> " << Errore << std::endl;
-                                // File names
-                        std::string dataFile = "error_data.dat";
-                        std::string outputFile = "error_plot.png";
-                        std::string scriptFile = "plot_script.gnuplot";
-
-                        // Write data to a file
-                        writeToFile(n_E, dataFile);
-
-                        // Create GNUplot script
-                        createGnuplotScript(dataFile, outputFile, scriptFile);
-
-                        // Call GNUplot to generate the plot
-                        int result = std::system(("gnuplot " + scriptFile).c_str());
-                        if (result != 0) {
-                            std::cerr << "Error: Failed to execute GNUplot.\n";
-                        } else {
-                            std::cout << "Plot successfully created: " << outputFile << "\n";
-                        }
-
-                        }
-                    }
 
             };
 
@@ -164,10 +164,10 @@ namespace Toolbox{
                 public:
                     LagrangeInterpolator() = default;
 
-                    void build(const std::vector<T> x,const std::vector<T> y, int n, double a, double b) override {;}
+                    /* void build(const std::vector<T> x,const std::vector<T> y, int n, double a, double b) override {;} */
 
                     // Metodo per costruire il modello di Lagrange con griglia casuale
-                    void buildCasual(const std::vector<T> x,const std::vector<T> y, int n, double a, double b){
+                    void build(const std::vector<T> x,const std::vector<T> y, int n, double a, double b){
 
                         if (x.size() != y.size()) {
                             throw std::invalid_argument("x and y vectors ust have the same size.");
@@ -241,13 +241,11 @@ namespace Toolbox{
                         return max;
                     } 
 
-                    void plotError(Interpolator<T> & ip, std::function<T(T)> f, double a, double b, int k) override {};
+                    /* void plotError(Interpolator<T> & ip, std::function<T(T)> f, double a, double b, int k) override {}; */
                     // Override dell'operatore () per interpolare in un dato punto t
                     T operator()(T t) const override {
                         return alglib::barycentriccalc(p_, t);
                     }
-                    void plotError(Interpolator<T> & ip, double a, double b, int k){;}
-
             };
 
         template <typename T>
@@ -277,12 +275,35 @@ namespace Toolbox{
                         alglib::spline1dbuildcubic(x_, y_,s_);
 
                     }
+                      double Error(std::function<double(double)> f, double a, double b) override {
+                        std::vector<double> t(101);  // 101 points to include both endpoints
+                        std::vector<double> Errore(101);
+
+                        // Compute the interpolation points
+                        double step = (b - a) / 100;
+                        for (int i = 0; i <= 100; ++i) {
+                            t[i] = a + i * step;
+                        }
+
+                        // Compute the error at each point
+                        for (int i = 0; i <= 100; ++i) {
+                            double interpolatedValue = alglib::spline1dcalc(s_, t[i]);  // Use the spline interpolant
+                            Errore[i] = std::abs(f(t[i]) - interpolatedValue);
+                        }
+
+                        // Find the maximum error
+                        auto max_iter = std::max_element(Errore.begin(), Errore.end());
+                        double max = *max_iter;
+
+                        return max;
+                    }
+
 
                     // Override dell'operatore () per interpolare in un dato punto t
                     double operator()(T t) const override {
                         return alglib::spline1dcalc(s_, t);
                     }
-                    void plotError(Interpolator<T> & ip, double a, double b, int k) override {;}
+                    /* void plotError(Interpolator<T> & ip, double a, double b, int k) override {;} */
 
 
             };
