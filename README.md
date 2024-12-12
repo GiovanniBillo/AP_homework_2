@@ -11,6 +11,10 @@ Giovanni Billo:
 - CMakeFile.txt configurations and code organization for both modules
 
 Tommaso Piscitelli:
+- Implementation of the entire statistics module
+- Tests for modules
+- CMakeFile.txt configurations and code organization
+
 
 # STATISTICS MODULE (Giovanni Billo)
 The module consists of a wrapper that eases the usage of Hossein Moein's DataFrame library [https://github.com/hosseinmoein/DataFrame].
@@ -31,6 +35,11 @@ Some other functionalities were extended,
 For the last 2 operations in this list, classification and interpolation, not present in the original library, custom visitors were implemented following Moein's guidelines
 
 # INTERPOLATION MODULE (Tommaso Piscitelli)
+The module consists of a wrapper that implements some methods within the interpolation package of the ALGLIB library, which is a library rich of functions useful for numerical analysis. The module defines an abstract class Interpolator from which the classes LinearInterpolator, LagrangeInterpolator, and SplineInterpolator are derived.
+
+As the names suggest, the LinearInterpolator class, through the build method, allows the interpolation of a data set (vector y) generally interpreted as values corresponding to another data set (vector x) or associated with a real-variable function x, using a piecewise linear polynomial, the LagrangeInterpolator class provides multiple methods for creating an interpolating polynomial depending on the type of vector x (random nodes, equidistant nodes, or Chebyshev nodes). Lastly, the SplineInterpolator class includes another build method that creates a cubic spline interpolant based on two input vectors, x and y.
+
+In each class, the operator () is overloaded, allowing immediate access to a specific element of the interpolant, which is useful for evaluating the pointwise error at a precise point (t). An approximate evaluation of the maximum error between the interpolant and a function is provided by the Error method. Finally, it is possible to visualize the trend of the error in relation to the number of points used to generate the different types of interpolants using the PlotError function.
 
 
 # BUILD INSTRUCTIONS
