@@ -39,12 +39,27 @@ The module consists of a wrapper that implements some methods within the interpo
 
 As the names suggest, the LinearInterpolator class, through the build method, allows the interpolation of a data set (vector y) generally interpreted as values corresponding to another data set (vector x) or associated with a real-variable function x, using a piecewise linear polynomial, the LagrangeInterpolator class provides multiple methods for creating an interpolating polynomial depending on the type of vector x (random nodes, equidistant nodes, or Chebyshev nodes). Lastly, the SplineInterpolator class includes another build method that creates a cubic spline interpolant based on two input vectors, x and y.
 
-In each class, the operator () is overloaded, allowing immediate access to a specific element of the interpolant, which is useful for evaluating the pointwise error at a precise point (t). An approximate evaluation of the maximum error between the interpolant and a function is provided by the Error method. Finally, it is possible to visualize the trend of the error in relation to the number of points used to generate the different types of interpolants using the PlotError function.
+In each class, the operator () is overloaded, allowing immediate access to a specific element of the interpolant, which is useful for evaluating the pointwise error at a precise point (t). 
+An approximate evaluation of the maximum error between the interpolant and a function is provided by the Error method. 
+Finally, it is possible to visualize the trend of the error in relation to the number of points used to generate the different types of interpolants using the PlotError function.
 
+## Convergence of interpolation methods 
+
+### Linear Interpolation
+![Linear Interpolation](images/error_plot_linear.png)
+
+### Lagrange Interpolation (Chebyshev Nodes)
+![Lagrange Interpolation](images/error_plot_chebyshev.png)
+
+### Spline Interpolation
+![Spline Interpolation](images/error_plot_spline.png)
+
+using the PlotError function, we plot the graphs to examine the behaviour of our interpolants as the number of points increases.
+In this case, just a Linear, Lagrange and Spline interpolant were considered. It can be clearly seen that while with Lagrange and Spline methods an increase in the number of points quickly translates to a drastic error reduction, this is not the case for a linear one, where on the contrary we observe the error increasing.
 
 # BUILD INSTRUCTIONS
 A CMakeLists.txt file handling the whole build process is provided for both working examples (in the main project folder) and test suites (in the tests folder).
-For each case it will be sufficient to execute the usual commands
+For each case it will be sufficient to execute the usual commands.
 '''
 cmake -B build
 cd build
