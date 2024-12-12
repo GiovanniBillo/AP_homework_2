@@ -87,6 +87,16 @@ target_link_libraries(tests PRIVATE
     GTest::gtest_main
     DataFrame::DataFrame
 )
+option(INTERPOLATION_MODULE "Include the InterpolationWrapper and Interpolate custom visitor" ON)
+# Conditionally include a library and headers
+if(INTERPOLATION_MODULE)
+    message(STATUS "Include the InterpolationWrapper and Interpolate custom visitor")
+    add_compile_definitions(INTERPOLATION_MODULE)
+    target_compile_definitions(tests PRIVATE INTERPOLATION_MODULE)
+else()
+    message(STATUS "Interpolation module is not included")
+endif()
+
 
 
 
@@ -96,6 +106,7 @@ message(STATUS "ALGLIB source dir: ${alglib_SOURCE_DIR}")
 enable_testing()
 include(GoogleTest)
 gtest_discover_tests(tests)
+
 
 
 

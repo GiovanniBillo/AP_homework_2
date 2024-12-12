@@ -1,1 +1,0 @@
-INDEX:100:<int>,OrderID:100:<string>,OrderDate:100:<string>,ShipDate:100:<string>,ShipMode:100:<string>,Discount:100:<double>,Sales:100:<double>,Profit:100:<double>

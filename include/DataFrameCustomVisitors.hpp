@@ -9,7 +9,6 @@
 #include <stdexcept>
 #include <InterpolateWrapper.hpp>
     
-
 template<typename IndexType, typename ValueType>
 struct ClassifyVisitor {
     using index_type = IndexType;   // Index column type
@@ -74,11 +73,12 @@ public:
 };
 
 #ifdef INTERPOLATION_MODULE
+#pragma message("INTERPOLATION MODULE is defined")
 template<typename IndexType, typename ValueType>
 struct InterpolationVisitor {
     using index_type = IndexType;   // Index column type
     using value_type = ValueType;  // first Data column type
-    using result_type = double;  // The classification result is a double 
+    using result_type = double;  // The interpolation result is a double 
 private:
     value_type point;
     int lb, ub;
@@ -165,6 +165,8 @@ public:
         return result_;
     }
 };
+#else
+#pragma message("INTERPOLATION_MODULE is NOT defined")
 #endif
 
 #endif // CUSTOM_VISITOR_H

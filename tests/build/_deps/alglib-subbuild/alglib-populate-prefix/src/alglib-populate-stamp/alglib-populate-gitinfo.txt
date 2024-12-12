@@ -1,3 +1,0 @@
-repository='https://github.com/hjkuijf/ALGLIB'
-module=''
-tag='origin'

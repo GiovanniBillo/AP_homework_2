@@ -8,18 +8,20 @@
 #include <string>
 #include <stdexcept>
 
+using namespace Toolbox;
+
 double tolerance = 0.01;
 
 TEST(CSVParserTest, DifferentDatasets) {
-    DataFrameWrapper<std::string> bankData("bank.csv", "bank_out.csv");
+    Toolbox::dfw::DataFrameWrapper<std::string> bankData("bank.csv", "bank_out.csv");
     bankData.loadAndReadFile();
     bankData.getInfo();
 
-    DataFrameWrapper<std::string> IBMData("IBM.csv", "IBM_out.csv");
+    Toolbox::dfw::DataFrameWrapper<std::string> IBMData("IBM.csv", "IBM_out.csv");
     IBMData.loadAndReadFile();
     IBMData.getInfo();
 
-    DataFrameWrapper<std::string> EcomData("ecom.csv", "ecom_out.csv");
+    Toolbox::dfw::DataFrameWrapper<std::string> EcomData("ecom.csv", "ecom_out.csv");
     EcomData.loadAndReadFile();
     EcomData.getInfo();
 
@@ -40,7 +42,7 @@ TEST(CSVParserTest, DifferentDatasets) {
 }
 
 TEST(IteratorsTest, GetColIndex) {
-    DataFrameWrapper<int> dfw("r.csv", "o.csv");
+    Toolbox::dfw::DataFrameWrapper<int> dfw("r.csv", "o.csv");
     dfw.loadAndReadFile();
     // Placeholder test that will fail
     const char * columnName1 = "Discount"; // index = 4
@@ -59,7 +61,7 @@ TEST(IteratorsTest, GetColIndex) {
 
 
 TEST(IteratorsTest, ColumnsByIndex) {
-    DataFrameWrapper<int> dfw("r.csv", "o.csv");
+    Toolbox::dfw::DataFrameWrapper<int> dfw("r.csv", "o.csv");
     dfw.loadAndReadFile();
 
 
@@ -76,7 +78,7 @@ TEST(IteratorsTest, ColumnsByIndex) {
 }
 
 TEST(IteratorsTest, ColumnsByIndexAndRowIndex) {
-    DataFrameWrapper<int> dfw("r.csv", "o.csv");
+    Toolbox::dfw::DataFrameWrapper<int> dfw("r.csv", "o.csv");
     dfw.loadAndReadFile();
     
     EXPECT_THROW(
@@ -92,7 +94,7 @@ TEST(IteratorsTest, ColumnsByIndexAndRowIndex) {
 }
 
 TEST(IteratorsTest, ColumnsByIndexAndSlice) {
-    DataFrameWrapper<int> dfw("r.csv", "o.csv");
+    Toolbox::dfw::DataFrameWrapper<int> dfw("r.csv", "o.csv");
     dfw.loadAndReadFile();
 
     try {
@@ -271,7 +273,7 @@ TEST(CustomVisitorsTests, ClassifyVisitor) {
 
 TEST(CustomVisitorsTests, InterpolationVisitor) {
     int lb = 0;
-    int ub = 50; 
+    int ub = 10; 
     double point = 4;
     InterpolationVisitor<int, double> visitor1(point, lb, ub, "Linear");
     InterpolationVisitor<int, double> visitor2(point, lb, ub, "LagrangeCasual");

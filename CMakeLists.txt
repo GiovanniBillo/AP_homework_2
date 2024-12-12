@@ -43,6 +43,10 @@ target_link_libraries(main PRIVATE DataFrame::DataFrame)
 # Conditionally include a library and headers
 if(INTERPOLATION_MODULE)
     message(STATUS "Include the InterpolationWrapper and Interpolate custom visitor")
+    add_compile_definitions(INTERPOLATION_MODULE)
+    target_compile_definitions(main PRIVATE INTERPOLATION_MODULE)
+
+
     
     # # Add custom library
     # add_library(CustomLib STATIC custom_library.cpp)

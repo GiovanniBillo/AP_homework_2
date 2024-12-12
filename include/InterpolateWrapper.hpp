@@ -6,7 +6,7 @@
 #include <stdexcept>
 #include <cmath>
 #include <functional>
-/* #include "interpolation.h" */  
+#include "interpolation.h"  
 
 template <typename T>
 class Interpolator {
