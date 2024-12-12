@@ -52,4 +52,6 @@ cmake -B build -CMAKE_BUILD_TYPE=Release -DDATA_DIR=/home/giovanni/example_data_
 cd build
 make // any files compiled with this will have a variable DATA_DIR containing the specified custom data directory, which can then be used in the code 
 '''
+### Compiler compatibility
+The code was tested on g++ compilers and needs version 14+ to utilize some modern C++ features. 
 
