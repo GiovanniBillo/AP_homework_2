@@ -2,7 +2,7 @@
 All files and folders for the second assignment of the Advanced Programming course at UniTS, A.2024/45
 Group members:
 - Giovanni Billo billogiova@gmail.com
-- Tommaso Piscitelli
+- Tommaso Piscitelli s309639@ds.units.it
 Individual contributions
 Giovanni Billo:
 - Implementation of the entire statistics module
@@ -12,7 +12,7 @@ Giovanni Billo:
 
 Tommaso Piscitelli:
 - Implementation of the entire statistics module
-- Tests for modules
+- Tests for module
 - CMakeFile.txt configurations and code organization
 
 
