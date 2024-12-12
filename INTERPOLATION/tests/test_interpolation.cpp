@@ -58,6 +58,8 @@ std::cout << "Function value on " << t << ":  " << f(t) <<" --- interpolated val
 double Max_error = A.Error(f, lb, ub); // Approximate evaluation of the maximum error between the test function and the interpolating polynomial.
 std::cout <<"Max Error: " << Max_error << std::endl;
 
+A.plotError(A, f, lb, ub,  20);        
+
 EXPECT_NEAR(f(t), Result, tolerance);  
 }
 
@@ -76,6 +78,8 @@ std::cout << "Function Vaule on " << t << ":  " << f(t) <<" ---- Interpolated va
 double Max_error = A.Error(f, lb, ub); // Approximate evaluation of the maximum error between the test function and the interpolating polynomial.
 std::cout <<"Max Error: " << Max_error << std::endl;
 
+A.plotError(A, f, lb, ub,  20);  
+        
 EXPECT_NEAR(f(t), Result, tolerance);
 
 }
@@ -94,7 +98,8 @@ std::cout << "Function Vaule on " << t << ":  " << f(t) <<" ---- Interpolated va
 double Max_error = A.Error(f, lb, ub); // Approximate evaluation of the maximum error between the test function and the interpolating polynomial.
 std::cout <<"Max Error: " << Max_error << std::endl;
 
-
+A.plotError(A, f, lb, ub,  20);  
+        
 EXPECT_NEAR(f(t),Result, tolerance); 
 
 }
