@@ -4,10 +4,39 @@
 #include <functional>
 #include <random>
 #include <set>
-
+#include <fstream> // For file I/O
 
 namespace Toolbox{
     namespace intw{ 
+
+    // Function to write the vector of pairs to a file
+    void writeToFile(const std::vector<std::pair<int, double>>& data, const std::string& filename) {
+        std::ofstream dataFile(filename);
+        if (!dataFile) {
+            std::cerr << "Error: Unable to create data file " << filename << ".\n";
+            return;
+        }
+        for (const auto &pair : data) {
+            dataFile << pair.first << " " << pair.second << "\n";
+        }
+        dataFile.close();
+    }
+
+    // Function to create a GNUplot script
+    void createGnuplotScript(const std::string& dataFile, const std::string& outputFile, const std::string& scriptFile) {
+        std::ofstream script(scriptFile);
+        if (!script) {
+            std::cerr << "Error: Unable to create GNUplot script file " << scriptFile << ".\n";
+            return;
+        }
+        script << "set terminal pngcairo size 800,600\n";
+        script << "set output '" << outputFile << "'\n";
+        script << "set xlabel 'Number of Points (n)'\n";
+        script << "set ylabel 'Error'\n";
+        script << "set title 'Error vs Number of Points'\n";
+        script << "plot '" << dataFile << "' using 1:2 with linespoints title 'Error'\n";
+        script.close();
+    }
         std::vector<double> Casual_Vec(int n, double lb, double ub) {
             // if (n > (ub - lb)) {
             //     throw std::invalid_argument("Impossibile generare abbastanza numeri unici nel range specificato.");

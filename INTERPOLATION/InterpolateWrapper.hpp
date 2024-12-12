@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <cmath>
 #include <functional>
+#include <utility>
 #include "interpolation.h"
 #include "helpers.hpp"  
 
@@ -126,8 +127,26 @@ namespace Toolbox{
                             double Errore = A.Error(f,lb,ub);
                             n_E.emplace_back(n, Errore);
 
-                            // std::cout << n << " LINEAR EQUID --> " << Errore << std::endl;
 
+                            // std::cout << n << " LINEAR EQUID --> " << Errore << std::endl;
+                                // File names
+                        std::string dataFile = "error_data.dat";
+                        std::string outputFile = "error_plot.png";
+                        std::string scriptFile = "plot_script.gnuplot";
+
+                        // Write data to a file
+                        writeToFile(n_E, dataFile);
+
+                        // Create GNUplot script
+                        createGnuplotScript(dataFile, outputFile, scriptFile);
+
+                        // Call GNUplot to generate the plot
+                        int result = std::system(("gnuplot " + scriptFile).c_str());
+                        if (result != 0) {
+                            std::cerr << "Error: Failed to execute GNUplot.\n";
+                        } else {
+                            std::cout << "Plot successfully created: " << outputFile << "\n";
+                        }
 
                         }
                     }
