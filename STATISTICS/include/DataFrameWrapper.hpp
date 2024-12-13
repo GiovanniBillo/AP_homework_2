@@ -17,27 +17,7 @@
 namespace Toolbox{
     namespace dfw{  
 
-        // DataFrame library is entirely under hmdf name-space
-        //
         using namespace hmdf;
-
-        /* // A DataFrame with ulong index type */
-        /* // */
-        /* using ULDataFrame = StdDataFrame<unsigned long>; */
-
-        /* // A DataFrame with string index type */
-        /* // */
-        /* using StrDataFrame = StdDataFrame<std::string>; */
-
-        /* // A DataFrame with DateTime index type */
-        /* // */
-        /* using DTDataFrame = StdDataFrame<DateTime>; */
-
-        /* // Alias for a type-erased DataFrame */
-        /* using DataFrameVariant = std::variant< */
-        /*     hmdf::StdDataFrame<int>, */
-        /*     hmdf::StdDataFrame<double>, */
-        /*     hmdf::StdDataFrame<std::string>>; */
 
         template <typename T>
             class DataFrameWrapper {
@@ -69,26 +49,15 @@ namespace Toolbox{
 
                     void loadAndReadFile() {
 
-                        /* // Create an instance of StrDataFrame */
-                        /* hmdf::StdDataFrame<std::string> df; */
 
                         // Process the data to put it in the right format for DataFrame
                         CSVParser parser;
-                        /* std::string outputFilename = inputFilename + "_out"; */
 
                         std::filesystem::path if_path = data_directory / inputFilename;
                         std::filesystem::path of_path = data_directory / outputFilename;
                         parser.parse(if_path.string(), of_path.string()); 
 
                         columnInfo = parser.getColumnTypes();
-                        /* if (!columnInfo) { */
-                        /*     throw std::runtime_error("Column types not set. Please initialize columnInfo."); */
-                        /* } */
-
-                        /* std::cout << "Column types:\n"; */
-                        /* for (const auto& t: *columnInfo) { */
-                        /*     std::cout << t << "\n"; */
-                        /* } */
 
                         // DataFrame requires file input for read to be in C-style string
                         const char* c_path = of_path.c_str();
@@ -99,11 +68,11 @@ namespace Toolbox{
 
                     size_t getColIndex(const char * columnName){
                         int index = -1; // skip the initial index column 
-                        for (const auto& [name, type] : columnInfo) {  // We're ignoring the second value (type) using `_`
+                        for (const auto& [name, type] : columnInfo) {  
                             if (name == columnName) {
-                                return index;  // Return the index when the column name matches
+                                return index;  
                             }
-                            ++index;  // Increment the index for each element
+                            ++index;  
                         }
                         throw std::runtime_error(std::string("Column \"") + columnName + "\" not found in ColumnInfo");
 
@@ -154,87 +123,59 @@ namespace Toolbox{
 
                     template <typename CT>
                         auto StandardDeviation(const char* columnName) {
-                            // Create the visitor inline
                             StdVisitor<CT, T> visitor;
 
-                            // Perform operations
                             df.template visit<CT>(columnName, visitor);
                             return visitor.get_result();  // Return the result of the visitor
                         }
 
                     template <typename CT>
                         auto Mean(const char* columnName) {
-                            // Create the visitor inline
                             MeanVisitor<CT, T> visitor;
 
-                            // Perform operations
                             df.template visit<CT>(columnName, visitor);
                             return visitor.get_result();  // Return the result of the visitor
                         }
 
                     template <typename CT>
                         auto Variance(const char* columnName) {
-                            // Create the visitor inline
                             StdVisitor<CT, T> visitor;
 
-                            // Perform operations
                             df.template visit<CT>(columnName, visitor);
                             return pow(visitor.get_result(), 2);  // Return the result of the visitor
                         }
 
                     template <typename CT>
                         auto Median(const char* columnName) {
-                            // Create the visitor inline
                             MedianVisitor<CT, T> visitor;
 
-                            // Perform operations
                             df.template visit<CT>(columnName, visitor);
                             return visitor.get_result();  // Return the result of the visitor
                         }
 
                     template <typename CT>
                         auto Correlation(const char* columnName1, const char * columnName2) {
-                            // Create the visitor inline
                             CorrVisitor<CT, T> visitor;
 
-                            // Perform operations
                             df.template single_act_visit<CT, CT>(columnName1, columnName2, visitor);
                             return visitor.get_result();  // Return the result of the visitor
                         }
 
                     template <typename CT>
                         auto frequencyCount(const char * columnName) {
-                            // Create the visitor inline
                             auto result =  df. template value_counts<CT>(columnName);
-                            /* auto name_index = df.indices_; */ 
                             auto name_index = result.get_index();
                             const std::vector<unsigned long> & counts = result. template get_column<size_t>("counts"); 
-                            // Create a dictionary (unordered_map) to map name_index to counts
                             std::unordered_map<CT, unsigned long> index_to_count;
 
-                            // Populate the dictionary
                             for (unsigned int i = 0; i < name_index.size(); ++i) {
                                 index_to_count[name_index[i]] = counts[i];
                             }
-                            return index_to_count;  // Return the result of the visitor
+                            return index_to_count;  
                         }
 
                     // Friend function to overload <<
                     friend std::ostream& operator<<(std::ostream& os, const StdDataFrame<T>& df) {
-                        /* // Print column headers */
-                        /* for (const auto& col : df.columns) { */
-                        /*     os << std::setw(15) << col; // Adjust column width */
-                        /* } */
-                        /* os << std::endl; */
-
-                        /* // Print rows */
-                        /* for (const auto& row : df.data) { */
-                        /*     for (const auto& value : row) { */
-                        /*         os << std::setw(15) << value; // Align values */
-                        /*     } */
-                        /*     os << std::endl; */
-                        /* } */
-                        /* auto result = df.value_counts<double>("col_3"); */
                         df.template write<std::ostream, double, T>(std::cout);
 
                         return os;
@@ -244,29 +185,25 @@ namespace Toolbox{
                         auto Classify(const char* columnName1, 
                                 const std::vector<std::string> categories, 
                                 const std::vector<std::function<bool(CT)>>& conditions) {
-                            // Create the visitor inline
                             ClassifyVisitor<T, CT> visitor(categories, conditions);
 
-                            // Perform operations
                             df.template visit<CT>(columnName1, visitor); 
                             return visitor.get_result();  // Return the result of the visitor
                         }
+#ifdef INTERPOLATION_MODULE
+                    template <typename CT>
+                    auto Interpolate(const char* columnName1, const char * columnName2, 
+                            const std::vector<std::string> categories, 
+                            const std::vector<std::function<bool(CT)>>& conditions) {
+                        InterpolationVisitor<T, CT> visitor(categories, conditions);
 
-                    /* template <typename CT> */
-                    /* auto Interpolate(const char* columnName1, const char * columnName2, */ 
-                    /*         const std::vector<std::string> categories, */ 
-                    /*         const std::vector<std::function<bool(CT)>>& conditions) { */
-                    /*     // Create the visitor inline */
-                    /*     InterpolationVisitor<T, CT> visitor(categories, conditions); */
-
-                    /*     // Perform operations */
-                    /*     df.template visit<CT>(columnName1, visitor); */ 
-                    /*     return visitor.get_result();  // Return the result of the visitor */
-                    /* } */
-
+                        df.template visit<CT>(columnName1, visitor); 
+                        return visitor.get_result();  // Return the result of the visitor
+                    }
+#endif
                     void getInfo(){
                         try {
-                            auto desc = df.template describe<double, int>(); // Filter for numerical types
+                            auto desc = df.template describe<double, int>(); 
 
                             // Write to console
                             desc.template write<std::ostream, double>(std::cout, io_format::csv2);

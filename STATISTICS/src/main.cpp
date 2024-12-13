@@ -20,13 +20,12 @@ int main(int, char *[])  {
     std::cout << "Retrieving each information by itself" << std::endl;
     const auto &discountColumn = dfw.columns<double>(columnName1); 
     size_t discountIndex = dfw.getColIndex(columnName1); 
-    /* size_t discountIndex = 4; // just for it to work */
     const auto &discountColumn_byindex = dfw.columns<double>(discountIndex); 
     const auto &discountColumn_entry_byindex = dfw.columns<double>(4, 1); // retrieve the first entry of the discount column  
     const auto &discountColumn_slice= dfw.columns<double>(4, 1, 4); // retrieve the first entry of the discount column  
-    std::cout << discountColumn[1] << discountColumn[2] << discountColumn[3] << std::endl;
-    std::cout << discountColumn_byindex[1] << discountColumn_byindex[2] << discountColumn_byindex[3] << std::endl;
-    std::cout << discountColumn_slice[0] << discountColumn_slice[1] << discountColumn_slice[2] << std::endl;
+    std::cout << "name and then index:"<< discountColumn[1] << discountColumn[2] << discountColumn[3] << std::endl;
+    std::cout << "by column index" << discountColumn_byindex[1] << discountColumn_byindex[2] << discountColumn_byindex[3] << std::endl;
+    std::cout << "indexing into a slice" << discountColumn_slice[0] << discountColumn_slice[1] << discountColumn_slice[2] << std::endl;
 
     auto sd = dfw.StandardDeviation<double>(columnName1);
     auto mean = dfw.Mean<double>(columnName1);
@@ -42,9 +41,7 @@ int main(int, char *[])  {
     std::cout << "Correlation between " << columnName1 << "and" << columnName2 <<" : " << correlation << std::endl;
     std::cout << "Frequency counts for " << columnName1 << " : " << std::endl;
     std::cout << frequencyCounts << std::endl; 
-
-    /* const auto &count_column = frequencyCounts.get_column<size_t>("counts"); */ 
-
+    std::cout << "summary function:"<< std::endl;
     dfw.getInfo();
 
     std::cout << "There is also the possibility to classify column data based on specific criteria (passed as lambda functions).\n Usage example: classify profit data as below or above average" << std::endl;

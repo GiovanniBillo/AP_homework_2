@@ -43,11 +43,6 @@ namespace Toolbox{
                         }
                         columnNames[0].first = "INDEX";
 
-                        /* // Initialize column types */
-                        /* for (const auto& name : columnNames) { */
-                        /*     columnTypes[name] = "Unknown"; */
-                        /* } */
-
                         // Parse data rows
                         size_t rowCount = 0;
                         std::string rowLine;
@@ -67,7 +62,6 @@ namespace Toolbox{
                         /* // Write formatted header to retrieve infos later */
                         std::string newHeader = formatHeader(columnNames, rowCount);
                         std::ofstream headerFile("header_info.txt");
-                        std::cout << "HEADER FILE PRINTED" << std::endl;
 
                         if (!headerFile.is_open()) {
                             throw std::runtime_error("Unable to create header_info.txt file");
@@ -98,7 +92,6 @@ namespace Toolbox{
 
                     }else
                     {               
-                        // no need to go through all the preprocessing: copy the contents directly( to still have input file)
                         inputFile.clear();               // Clear any error flags
                         inputFile.seekg(0, std::ios::beg); // Move to the beginning of the file
                         outputFile << inputFile.rdbuf(); // Copy file contents directly

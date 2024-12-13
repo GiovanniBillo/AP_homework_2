@@ -9,17 +9,15 @@ int main()
     // Producing some graphs for the behaviour and convergence of various interpolators
     Toolbox::intw::LinearInterpolator<double> A;
 
-    // Example function to interpolate (e.g., f(x) = sin(x))
+    // Example function to interpolate (e.g., f(x) = sin(x)) --> used to check errors
     auto func = [](double x) { return std::sin(x); };
 
-    // Define bounds and maximum points
     double lowerBound = 0.0;
     double upperBound = M_PI; // π
     int maxPoints = 10;
-    // Method name for the interpolation
     std::string methodName = "linearinterpolation";
 
-    // Demonstrate plotError with the required methodName argument
+    // 
     A.plotError(func, lowerBound, upperBound, maxPoints, Toolbox::intw::fill_x_equid, methodName);
 
     Toolbox::intw::LagrangeInterpolator<double> B;

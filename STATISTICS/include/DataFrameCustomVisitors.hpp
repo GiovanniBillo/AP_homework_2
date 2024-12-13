@@ -8,7 +8,9 @@
 #include <functional>
 #include <stdexcept>
 #include <InterpolateWrapper.hpp>
-    
+
+using namespace Toolbox;
+
 template<typename IndexType, typename ValueType>
 struct ClassifyVisitor {
     using index_type = IndexType;   // Index column type
@@ -86,7 +88,6 @@ private:
     result_type result_;  // Store interpolation result
 
 public:
-    // Constructor: Initialize the number of elements in the column(s), upper bound and lower bound   
     InterpolationVisitor(double point, int lb, int ub, const char * InterpolationMethod): point(point), lb(lb), ub(ub), InterpolationMethod(InterpolationMethod){
         
     }
@@ -96,14 +97,6 @@ public:
         result_ = 0.0;  // Reset result for a fresh computation
     }
     
-    // Overloaded operator() for single element visits (required by DataFrame::visit)
-    
-        /* (const index_type &idx, */
-        /*                     const value_type &val1, const value_type &val2) */
-        /* (const index_type &idx_begin, const index_type &idx_end, */
-        /*         const value_type &column_begin1, const value_type &column_end1, */
-        /*         const value_type &column_begin2, const value_type &column_end2) */
-
     template <typename K, typename H>
     inline void operator() (const K &idx_begin, const K &idx_end,
                 const H &column_begin1, const H &column_end1,
@@ -116,29 +109,29 @@ public:
         y.assign(column_begin2, column_end2);
 
         if (InterpolationMethod == "Linear"){
-           LinearInterpolator<double> A;
-           A.build(x, y);
+           Toolbox::intw::LinearInterpolator<double> A;
+           A.build(x, y, y.size(), lb, ub);
            result_ = A(point);
         }
         else if (InterpolationMethod == "LagrangeCasual"){
-           LagrangeInterpolator<double> A;
-           A.buildCasual(x, y, y.size());
+           Toolbox::intw::LagrangeInterpolator<double> A;
+           A.build(x, y, y.size(), lb, ub);
            result_ = A(point);
         }
         else if (InterpolationMethod=="LagrangeEquidistant"){
-           LagrangeInterpolator<double> A;
-           A.buildEquidistant(y, y.size(), lb, ub);
+           Toolbox::intw::LagrangeInterpolator<double> A;
+           A.buildEquidistant(x, y, y.size(), lb, ub);
            result_ = A(point);
            
         }
         else if (InterpolationMethod=="LagrangeChebyshev"){
-           LagrangeInterpolator<double> A;
-           A.buildChebyshev(y, y.size(), lb, ub);
+           Toolbox::intw::LagrangeInterpolator<double> A;
+           A.buildChebyshev(x, y, y.size(), lb, ub);
            result_ = A(point);
         }
         else if (InterpolationMethod == "Spline"){
-           SplineInterpolator<double> A;
-           A.build(x, y);
+           Toolbox::intw::SplineInterpolator<double> A;
+           A.build(x, y, y.size(), lb, ub);
            result_ = A(point);
         }
         else{

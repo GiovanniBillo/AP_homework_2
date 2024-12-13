@@ -133,7 +133,6 @@ namespace Toolbox{
 
                     };
 
-                    // Override dell'operatore () per interpolare in un dato punto t
                     T operator()(T t) const override {
                         // Interpolazione lineare tra due punti vicini
                         for (size_t i = 1; i < x_.size(); ++i) {
@@ -164,9 +163,7 @@ namespace Toolbox{
                 public:
                     LagrangeInterpolator() = default;
 
-                    /* void build(const std::vector<T> x,const std::vector<T> y, int n, double a, double b) override {;} */
 
-                    // Metodo per costruire il modello di Lagrange con griglia casuale
                     void build(const std::vector<T> x,const std::vector<T> y, int n, double a, double b){
 
                         if (x.size() != y.size()) {
@@ -182,15 +179,8 @@ namespace Toolbox{
                         alglib::real_1d_array x_ , y_;
                         x_.setcontent(n, idx_x);
                         y_.setcontent(n, idx_y);
-                        /* for (size_t i = 0; i < y.size(); ++i) { */
-                        /*     y_[i] = y[i]; */
-                        /*     x_[i] = x[i]; */
-                        /* } */
-
-                        // Costruzione dell'interpolante 
                         alglib::polynomialbuild(x_, y_, n, p_);
                     }
-                    // Metodo per costruire il modello di Lagrange con griglia equidistante
                     void buildEquidistant(const std::vector<T> x,const std::vector<T> y, int n, double a, double b) {
                         if (y.size() != static_cast<size_t>(n)) {
                             throw std::invalid_argument("y vector size must be equal to n.");
@@ -201,10 +191,8 @@ namespace Toolbox{
                         idx = y.data(); 
                         y_.setcontent(n, idx);
     
-                        // Costruzione dell'interpolante 
                         alglib::polynomialbuildeqdist(a, b, y_, n, p_);
                     }
-                    // Metodo per costruire il modello di Lagrange con griglia di Chebyshev
                     void buildChebyshev(const std::vector<T> x,const std::vector<T> y, int n, double a, double b) {
                         if (y.size() != static_cast<size_t>(n)) {
                             throw std::invalid_argument("f vector size must be equal to n.");
@@ -218,7 +206,6 @@ namespace Toolbox{
                         y_.setcontent(n, idx);
                         
 
-                        // Costruzione dell'interpolante
                         alglib::polynomialbuildcheb1(a, b, y_, n, p_);
                     }
 
@@ -231,9 +218,8 @@ namespace Toolbox{
                         for (int i = 0; i < 100; ++i)
                         {
                             t[0] = a;
-                            t[i+1] = (b - a)/100 + t[i] ;  // da aggiustare M_PI
+                            t[i+1] = (b - a)/100 + t[i] ;  
                             Errore[i]= std::abs( f(t[i]) - alglib::barycentriccalc(p_, t[i]) );
-                            //std::cout << Errore[i] << std::endl;
 
                         } 
                         auto max_iter = std::max_element(Errore.begin(), Errore.end());
@@ -241,8 +227,6 @@ namespace Toolbox{
                         return max;
                     } 
 
-                    /* void plotError(Interpolator<T> & ip, std::function<T(T)> f, double a, double b, int k) override {}; */
-                    // Override dell'operatore () per interpolare in un dato punto t
                     T operator()(T t) const override {
                         return alglib::barycentriccalc(p_, t);
                     }
@@ -253,13 +237,12 @@ namespace Toolbox{
 
                 private:
                     alglib::real_1d_array x_, y_;
-                    alglib::spline1dinterpolant s_;  // Interpolante spline cubic
+                    alglib::spline1dinterpolant s_;  // cubic spline interpolant 
                     std::vector<std::pair<int, double>> n_E;
 
                 public:
                     SplineInterpolator() = default;
 
-                    // Costruzione dell'interpolante spline cubica 
                     void build(const std::vector<T> x,const std::vector<T> y, int n, double a, double b) {
                         if (x.size() != y.size()) {
                             throw std::invalid_argument("x and y vectors must have the same size.");
@@ -299,11 +282,9 @@ namespace Toolbox{
                     }
 
 
-                    // Override dell'operatore () per interpolare in un dato punto t
                     double operator()(T t) const override {
                         return alglib::spline1dcalc(s_, t);
                     }
-                    /* void plotError(Interpolator<T> & ip, double a, double b, int k) override {;} */
 
 
             };
